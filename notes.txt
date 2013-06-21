@@ -1,0 +1,9 @@
+Taggers to test:
+
+- treetagger           tree-tagger
+- stanford for French  stanford-postagger-full-2013-04-04
+- melt                 melt-2.0b
+- lg tagger            lgtagger-1.1 -> to compile & link add
+                                       -lpthread -lm at the end 
+                                       of command line 
+- lia_tagg (f. bechet) lia_tagg
