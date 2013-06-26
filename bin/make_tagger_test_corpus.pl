@@ -30,11 +30,31 @@ Extracts neologisms occurences from the xml wiki neologisms corpus. Since the re
 
 =over
 
-=back
+=item the neologism:
+
+<<terme>>abracadabrantesquement<</terme>>
+
+=item information about part of speach:
+
+<<type origine="abracadabrantesque" nature="adv">>Xment<</type>>
+
+=item the examples containing this word
+
+ <<sources>>
+   <<texte url="http://www.bruxelles-francophone.be/topic2035.html" type="forum" date="2009">>
+
+ LA BELGIQUE FRANCOPHONE DEPECEE MORCEAU PAR MORCEAU
+ au fil des réformes institutionnelles … Revisitons l’étal de 1962 à 2005…
+
+ ....
+
+The text element also gets an id 
 
 =back
 
 =head1 REQUIRED ARGUMENTS
+
+The xml file with the neologisms.
 
 =head1 OPTIONS
 
@@ -51,8 +71,81 @@ my @optkeys = (
 
 unless (GetOptions (\%opts, @optkeys)) { pod2usage(2); };
 
+unless (@ARGV) { pod2usage(2); };
+
 print STDERR "Options:\n";
 print STDERR Dumper(\%opts);
+
+use XML::LibXML;
+
+my $dom = XML::LibXML->load_xml(
+  location => $ARGV[0],
+  );
+
+my $tdom = XML::LibXML->createDocument('1.0', 'UTF-8');
+my $tc = $tdom->createElement('corpus');
+$tdom->setDocumentElement($tc);
+
+my %types;
+
+my @fiches = $dom->findnodes('//fiche');
+print STDERR "Number of neo entries: ", scalar(@fiches), "\n";
+
+foreach my $fiche (@fiches) {
+  my $f_id = $fiche->getAttribute('id');
+  print STDERR $f_id, "\n";
+
+  
+  my $tf = $tdom->createElement('entry');
+  $tf->setAttribute('id', $f_id);
+  
+  my @terms = $fiche->findnodes('terme');
+  
+  unless( scalar(@terms) == 1 ) {
+    warn "More than one term for fiche $f_id\n";
+  }
+  
+  my $term = $terms[0]->textContent();
+  my $word = $tdom->createElement('word');
+  $word->addChild($tdom->createTextNode($term));
+  
+  my @types = $fiche->findnodes('type');
+  unless( scalar(@types) == 1 ) {
+    warn "More than one type for fiche $f_id\n";
+  }
+  if ($types[0]->hasAttribute('nature')) {
+    my $pos = $types[0]->getAttribute('nature');
+    $types{$pos}++;
+    $word->setAttribute('pos', $pos);
+  } else {
+    print STDERR "No POS for fiche $f_id ($term)\n";
+  }
+  
+  $tf->addChild($word);
+
+  my $ex = $tdom->createElement('examples');
+  
+  my @examples = $fiche->findnodes('.//texte');
+
+  foreach my $iex (0 .. $#examples) {
+    my $ex_id = join('-', $f_id, $iex+1);
+    my $ex_text = $examples[$iex]->textContent();
+
+    my $ex_el = $tdom->adoptNode($examples[$iex]);
+    $ex_el->setAttribute('id', $ex_id);
+    
+    $ex->addChild($ex_el);
+
+  }
+
+  $tf->addChild($ex);
+  $tc->addChild($tf);
+
+}
+
+print STDERR Dumper(\%types);
+
+$tdom->toFH(\*STDOUT, 1);
 
 1;
 
