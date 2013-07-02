@@ -20,7 +20,7 @@ ${LG_HOME}/lgtagger -t -L ../test_text.xml > $@
 lg_input.txt: ${SCRIPT_DIR}/prepare_4_lg.pl ${NEO_TAGGER_TEST_SENT}
 	perl $< ${NEO_TAGGER_TEST_SENT} > $@
 
-neo_test_lg.tagged: lg_input.txt lg_known_words
+neo_test_lg.tagged: lg_input.txt
 	export LGTAGGER_PATH=${LG_HOME} ; java -Xms1024M -Xmx1024M -cp /home/falk/lgtagger-1.1/classes:/home/falk/lgtagger-1.1/lib/JSAP-2.1.jar:/home/falk/lgtagger-1.1/lib/berkeleyParser-V1_1-fr.jar fr/upemlv/lgtools/tagging/LGTaggerMain --is_tokenized -m /home/falk/lgtagger-1.1/French/models/default lg_input.txt > $@
 
 

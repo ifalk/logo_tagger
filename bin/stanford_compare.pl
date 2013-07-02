@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 # -*- mode: perl; buffer-file-coding-system: utf-8 -*-
-# prepare_4_lg.pl                   falk@lormoral
+# stanford_compare.pl                   falk@lormoral
 #                    02 Jul 2013
 
 use warnings;
@@ -18,7 +18,7 @@ use utf8;
 
 =head1 NAME
 
-prepare_4_lg.pl
+stanford_compare.pl
 
 =head1 USAGE
 
@@ -26,7 +26,7 @@ prepare_4_lg.pl
 
 =head1 DESCRIPTION
 
-Stub documentation for prepare_4_lg.pl, 
+Stub documentation for stanford_compare.pl, 
 
 =head1 REQUIRED ARGUMENTS
 
@@ -34,18 +34,17 @@ Stub documentation for prepare_4_lg.pl,
 
 =cut
 
-
 my %opts = (
-	    'list_known_words' => '',
+	    'gold' => '',
 	   );
 
 my @optkeys = (
-	       'list_known_words:s',
+	       'gold=s',
 	      );
 
 unless (GetOptions (\%opts, @optkeys)) { pod2usage(2); };
 
-unless (@ARGV) { pod2usage(2) };
+unless (@ARGV) { pod2usage(2); };
 
 print STDERR "Options:\n";
 print STDERR Dumper(\%opts);
@@ -56,38 +55,36 @@ binmode(STDERR, ':utf8');
 use XML::LibXML;
 
 my $dom = XML::LibXML->load_xml(
+  location => $opts{gold},
+  );
+
+my %gold;
+
+foreach my $entry ($dom->findnodes('//entry')) {
+  my $word_el = ($entry->findnodes('word'))[0];
+  my $pos = $word_el->getAttribute('pos');
+  
+  foreach my $s ($entry->findnodes('.//s')) {
+    my @neo = map { $_->textContent() } $s->findnodes('neologisme');
+    my $s_id = $s->getAttribute('id');
+    foreach my $word (@neo) {
+      $gold{$s_id}->{$word}->{$pos}++;
+    }
+  }
+}
+
+my %stanf;
+
+my $sdom = XML::LibXML->load_xml(
   location => $ARGV[0],
   );
 
-my %s_ids;
-foreach my $s ($dom->findnodes('//s')) {
+foreach my $s ($sdom->findnodes('//s')) {
   my $s_id = $s->getAttribute('id');
-  $s_ids{$s_id}++;
-  $s_id =~ s{ S_ }{}xms;
-  print "$s_id\n";
-  
-  print join(' ', map {
-    my $type = $_->nodeType();
-    
-    if ($type == 3) {
-      $_->nodeValue();
-    } elsif ($type == 1) {
-      my $neo = $_->textContent();
-      "NEO $neo NEO";
-    }
-	     } $s->childNodes()
-    ), "\n";
-}
-
-if ($opts{list_known_words}) {
-  if (open (my $fh, '>:encoding(utf-8)', $opts{list_known_words})) {
-    foreach my $s_id (map { $_->[0] }
-		      sort { $a->[1] <=> $b->[1] } 
-		      map { [$_, /S_(\d+)/ ] } keys %s_ids) {
-      print $fh join("\t", $s_id, $s_id, 'SENT'), "\n";
-    }
-  } else {
-    print STDERR "Couldn't open $opts{list_known_words} for output: $!\n";
+  my @wp = map { [ split(/_/, $_) ] } split(/\s+/, $s->textContent());
+  print STDERR "$s_id\n";
+  foreach my $g_neo (keys %{ $gold{$s_id} }) {
+    my @words = split(/\s+/, $g_neo);
   }
 }
 
