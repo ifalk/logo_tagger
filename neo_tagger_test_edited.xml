@@ -277,7 +277,7 @@ Il est assez drôle de la voir patauger dans les difficultés de toutes sorte, q
     </examples>
   </entry>
   <entry id="L00027">
-    <word pos="nom/adj">bling-bling</word>
+    <word pos="adj">bling-bling</word>
     <examples>
       <texte url="http://www.liberation.fr/sports/0101639834-l-hotel-des-bleus-trop-bling-bling-pour-rama-yade" date="2010" type="article sportif" id="L00027-1">
 L'hôtel des Bleus trop <neologisme>bling-bling</neologisme> pour Rama Yade.
@@ -498,7 +498,7 @@ Au secours, je vis avec un "<neologisme>décoristo</neologisme>" !
 Le « <neologisme>décoristo</neologisme> », cette espèce nouvelle, rompt avec des siècles de discrimination sexuelle, quand la phrase « Il est très doué pour la décoration » lui accolait un peu vite l'étiquette d'homme d'intérieur.
 Le <neologisme>décoristo</neologisme> 2012 est l'équivalent du métrosexuel en mode.
 Le <neologisme>décoristo</neologisme> est informaticien, banquier, cardiologue... ou exerce n'importe quel autre métier sans rapport avec sa passion.
-Le d<neologisme>écoristo</neologisme> adore les loisirs orientés par son dada : visites de galeries et de boutiques pointues du haut Marais le samedi ; stands d'antiquités du XXe siècle aux puces le dimanche ;
+Le <neologisme>décoristo</neologisme> adore les loisirs orientés par son dada : visites de galeries et de boutiques pointues du haut Marais le samedi ; stands d'antiquités du XXe siècle aux puces le dimanche ;
 Constatez-vous l'émergence de ce « <neologisme>décoristo</neologisme> » ?
       </texte>
     </examples>
@@ -543,7 +543,7 @@ L'avantage de la « <neologisme>déparentalisation</neologisme> » est cependant
 La « <neologisme>déparentalisation</neologisme> », qui ne pouvait que marginaliser le rôle des rapports de parenté (charnels) dans la reproduction de la cohésion sociale, aurait-elle pu s'accomplir si ne s'était pas produit, du même pas, une autre évolution sociale qui aboutissait à faire tenir la société sur d'autres bases ? 
 Ils ont évidemment renforcé le processus de <neologisme>déparentalisation</neologisme>, mais l'ont-ils contrebalancé et compensé au niveau de ses effets sociaux ? 
 Ceci ne remet pas en question le processus de <neologisme>déparentalisation</neologisme>.
-La transformation de « descendants » en « héritiers » est un élément essentiel du processus de spatialisation/<neologisme>déparentalisation</neologisme>. 
+La transformation de « descendants » en « héritiers » est un élément essentiel du processus de spatialisation / <neologisme>déparentalisation</neologisme>. 
 Un point clé à élucider serait de savoir si l'Église savait que la spatialisation était le processus inverse et complémentaire de la « <neologisme>déparentalisation</neologisme> », donc que la spatialisation pouvait apparaître comme un moyen de contrebalancer et compenser la « <neologisme>déparentalisation</neologisme> ».
 Elle est, d'une part, imaginaire plutôt que symbolique parce qu'elle s'exerce dans un contexte de dérégulation socioéconomique rapide et de « <neologisme>déparentalisation</neologisme> » propre aux sociétés africaines contemporaines.
       </texte>
@@ -817,7 +817,7 @@ Le président de la SNCF, qui a martelé vouloir qu'«il n'y ait plus de grève 
     </examples>
   </entry>
   <entry id="L00076">
-    <word pos="nom/adj">guérillériste</word>
+    <word pos="adj">guérillériste</word>
     <examples>
       <texte url="http://www.henri-weber.fr/partisocialiste.php?parti_article_id=67" date="2008" type="article politique" id="L00076-1">
 	Ils vont se détourner de toute tentative <neologisme>guérillériste</neologisme>.
@@ -853,20 +853,25 @@ Le président de la SNCF, qui a martelé vouloir qu'«il n'y ait plus de grève 
     </examples>
   </entry>
   <entry id="L00081">
-    <word pos="nom/adj">infonuagique</word>
+    <word pos="nom">infonuagique</word>
     <examples>
-      <texte url="http://www.businesswire.com/news/home/20100413006060/fr/" date="2010" type="article économie" id="L00081-1">
-	Il est équipé pour la prise en charge de charges <neologisme>infonuagiques</neologisme> et permettra à Hilton Worldwide de n'utiliser que les ressources nécessaires à la prise en charge de ses besoins en technologie de l'information que ce soit en périodes creuses ou de pointe.
-      </texte>
-      <texte url="http://journalmetro.com/plus/techno/49465/la-tablette-tactile-damazon-disponible-a-la-fin-novembre/" date="2011" type="article technologies" id="L00081-2">
+      <texte url="http://journalmetro.com/plus/techno/49465/la-tablette-tactile-damazon-disponible-a-la-fin-novembre/" date="2011" type="article technologies" id="L00081-1">
 	Fait particulier, le matériel ne pourrait compter que sur 6 Go de capacité de stockage, reposant davantage sur l'<neologisme>infonuagique</neologisme> que ses concurrents pour y déposer pièces musicales et films.
       </texte>
-      <texte url="http://www.itmag.sn/telecom/croissance/2147-entretien-avec-zou-zhilei-president-afrique-du-nord-de-huawei-lon-sattend-a-une-croissance-du-marche-des-telecomsr" date="2011" type="article technologies" id="L00081-3">
+      <texte url="http://www.itmag.sn/telecom/croissance/2147-entretien-avec-zou-zhilei-president-afrique-du-nord-de-huawei-lon-sattend-a-une-croissance-du-marche-des-telecomsr" date="2011" type="article technologies" id="L00081-2">
 	Tous les services sont basés sur la plateforme unifiée de l'<neologisme>infonuagique</neologisme>, pouvant également apporter aux opérateurs de nouvelles opportunités et de nouveaux axes de développement.
 	Les opérateurs peuvent vendre les services de l'<neologisme>infonuagique</neologisme> à tous les prestataires du contenu et les prestataires de services.
       </texte>
-      <texte url="http://www.radio-canada.ca/nouvelles/acces/suite.asp?lien=http://www.radio-canada.ca/nouvelles/Economie/2010/09/02/010-achat-3par-dell-hp-jeudi.shtml" date="2010" type="article économie" id="L00081-4">
+      <texte url="http://www.radio-canada.ca/nouvelles/acces/suite.asp?lien=http://www.radio-canada.ca/nouvelles/Economie/2010/09/02/010-achat-3par-dell-hp-jeudi.shtml" date="2010" type="article économie" id="L00081-3">
 	Les deux fabricants d'ordinateurs rivalisaient pour s'approprier 3PAR pour augmenter leur présence dans le domaine de l'<neologisme>infonuagique</neologisme>, ou « cloud computing » en anglais.
+      </texte>
+    </examples>
+  </entry>
+  <entry id="L000811">
+    <word pos="adj">infonuagique</word>
+    <examples>
+      <texte url="http://www.businesswire.com/news/home/20100413006060/fr/" date="2010" type="article économie" id="L000811-1">
+	Il est équipé pour la prise en charge de charges <neologisme>infonuagiques</neologisme> et permettra à Hilton Worldwide de n'utiliser que les ressources nécessaires à la prise en charge de ses besoins en technologie de l'information que ce soit en périodes creuses ou de pointe.
       </texte>
     </examples>
   </entry>
@@ -918,7 +923,7 @@ Un nom analogue a même été trouvé pour désigner cette carence de culture : 
     </examples>
   </entry>
   <entry id="L00087">
-    <word pos="adj/nom">libertarien</word>
+    <word pos="nom">libertarien</word>
     <examples>
       <texte url="http://www.lemonde.fr/ameriques/article/2012/09/21/marchand-d-utopie_1762945_3222.html" date="2012" type="article économie" id="L00087-1">
 	Petit-fils de l'économiste Milton Friedman, fer de lance du néolibéralisme, Patri Friedman est un <neologisme>libertarien </neologisme>convaincu, qui compare la marche d'un pays à celle d'une entreprise.
@@ -987,12 +992,17 @@ Enfin, à la <neologisme>logithèque</neologisme>, les Saint-Mauriens peuvent ut
     </examples>
   </entry>
   <entry id="L00093">
-    <word pos="adj/nom">mariniste</word>
+    <word pos="nom">mariniste</word>
     <examples>
       <texte url="http://www.latribune-online.com/suplements/international/55271.html" date="2011" type="article politique" id="L00093-1">
 	Delaume relève qu'«en France, au sein même du Front national cohabitent désormais les tenants ombrageux d'une extrême droite traditionnelle et austère à la Gollnish et ceux d'une droite radicale jeune, moderne et dynamique, qui s'auto-désignent plus volontiers comme "<neologisme>marinistes</neologisme>" que comme militants frontistes». 
       </texte>
-      <texte url="http://www.lexpress.fr/actualite/politique/norvege-un-conseiller-de-marine-le-pen-declenche-un-tolle-a-gauche_1014922.html" date="2011" type="article politique" id="L00093-2">
+    </examples>
+  </entry>
+  <entry id="L000931">
+    <word pos="adj">mariniste</word>
+    <examples>
+      <texte url="http://www.lexpress.fr/actualite/politique/norvege-un-conseiller-de-marine-le-pen-declenche-un-tolle-a-gauche_1014922.html" date="2011" type="article politique" id="L000931-1">
 	L'état-major frontiste est d'autant plus embarrassé que Laurent Ozon est l'une des figures montantes du FN <neologisme>mariniste</neologisme>.
       </texte>
     </examples>
@@ -1032,7 +1042,7 @@ Enfin, à la <neologisme>logithèque</neologisme>, les Saint-Mauriens peuvent ut
     </examples>
   </entry>
   <entry id="L00097">
-    <word pos="adj/nom">mileuriste</word>
+    <word pos="adj">mileuriste</word>
     <examples>
       <texte url="http://www.20minutes.fr/monde/130669-Monde-Les-jeunes-Espagnols-prives-de-toit.php" date="2007" type="article actualité" id="L00097-1">
 	La plupart d'entre eux sont à temps partiel et ont des salaires ne dépassant pas 1 000 e mensuel, d'où leur surnom de génération « <neologisme>mileuriste</neologisme> ».
