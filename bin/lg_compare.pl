@@ -194,8 +194,6 @@ foreach my $s_id (map { $_->[0] }
 
 }
 
-close $fh;
-
 1;
 
 

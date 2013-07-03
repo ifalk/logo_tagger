@@ -59,19 +59,24 @@ my $dom = XML::LibXML->load_xml(
   );
 
 my %gold;
+my %gold_sent;
 
 foreach my $entry ($dom->findnodes('//entry')) {
   my $word_el = ($entry->findnodes('word'))[0];
   my $pos = $word_el->getAttribute('pos');
   
   foreach my $s ($entry->findnodes('.//s')) {
+    my $sent = $s->textContent();
     my @neo = map { $_->textContent() } $s->findnodes('neologisme');
     my $s_id = $s->getAttribute('id');
+    $gold_sent{$s_id} = $sent;
     foreach my $word (@neo) {
       $gold{$s_id}->{$word}->{$pos}++;
     }
   }
 }
+
+use List::MoreUtils qw(indexes);
 
 my %stanf;
 
@@ -81,11 +86,55 @@ my $sdom = XML::LibXML->load_xml(
 
 foreach my $s ($sdom->findnodes('//s')) {
   my $s_id = $s->getAttribute('id');
-  my @wp = map { [ split(/_/, $_) ] } split(/\s+/, $s->textContent());
-  print STDERR "$s_id\n";
+  my $tagging = $s->textContent();
+  $tagging =~ s{ \A \s* }{}xms;
+  my @wp = map { [ split(/_/, $_) ] } split(/\s+/, $tagging);
   foreach my $g_neo (keys %{ $gold{$s_id} }) {
     my @words = split(/\s+/, $g_neo);
+    my @matches = indexes { $_->[0] =~ m{ \b $words[0] \b }xms } @wp;
+    unless (@matches) {
+      print STDERR $gold_sent{$s_id}, "\n";
+      print STDERR Dumper(\@wp);
+    }
+    # print STDERR Dumper(\@matches);
+
+    foreach my $neo_start (@matches) {
+
+      my $neo_end = $neo_start+$#words;
+
+      if ($neo_end != $neo_start) {
+	next unless ($wp[$neo_end]->[0] =~ m{ \b $words[$#words] \b }xms); 
+      }
+
+      my $sf_word = join(' ', map { $wp[$_]->[0] } $neo_start .. $neo_end);
+      my $sf_pos = join(' ', map { $wp[$_]->[1] } $neo_start .. $neo_end);
+      $stanf{$s_id}->{$sf_word}->{$sf_pos}++;
+    }
   }
+}
+
+foreach my $s_id (map { $_->[0] }
+		  sort { $a->[1] <=> $b->[1] } 
+		  map { [$_, /S_(\d+)/ ] }  keys %gold) {
+
+  print "$s_id\n";
+  foreach my $word (sort keys %{ $gold{$s_id} }) {
+    foreach my $pos (sort keys %{ $gold{$s_id}->{$word} }) {
+      print "GOLD: $word, $pos, $gold{$s_id}->{$word}->{$pos}\n";
+    }
+  }
+
+  if ($stanf{$s_id}) {
+    foreach my $word (sort keys %{ $stanf{$s_id} }) {
+      foreach my $pos (sort keys %{ $stanf{$s_id}->{$word} }) {
+	print "STANF: $word, $pos, $stanf{$s_id}->{$word}->{$pos}\n";
+      }
+    }
+  } else {
+    print "No Stanford tagging for $s_id\n";
+  }
+
+
 }
 
 1;
