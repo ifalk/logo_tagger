@@ -137,7 +137,7 @@ Ces <neologisme>aronistes</neologisme> affirment qu'une «thèse circulerait dan
     </examples>
   </entry>
   <entry id="L00011">
-    <word pos="nom">assistant maternel</word>
+    <word pos="MWE: nom, adj">assistant maternel</word>
     <examples>
       <texte url="http://www.legifrance.gouv.fr/affichCode.do;jsessionid=820F7B54552A2A211305712F7F817069.tpdjo11v_1?idSectionTA=LEGISCTA000006178423&amp;cidTexte=LEGITEXT000006074069&amp;dateTexte=20050211" date="2006" type="texte loi" id="L00011-1">
 Les règles relatives à la formation des assistants maternels agréés pour l'accueil de mineurs à titre permanent ou non permanent sont fixées par les dispositions des articles D. 2112-14 à D. 2112-20 du code de la santé publique ci-après reproduites : - les aspects éducatifs de l'accueil de l'enfant et le rôle de l'<neologisme>assistant maternel</neologisme> ; - le métier d'<neologisme>assistant maternel</neologisme> et le soutien au quotidien par la famille d'accueil d'un enfant qui n'est pas le sien ;
@@ -188,7 +188,7 @@ Londres célèbre l'<neologisme>avant-gardisme</neologisme> du créateur Hussein
     </examples>
   </entry>
   <entry id="L00017">
-    <word pos="verbe">avoir le seum</word>
+    <word pos="MWE: verbe, det, nom">avoir le seum</word>
     <examples>
       <texte url="http://www.editions-zones.fr/spip.php?page=lyberplayer&amp;id_article=162" date="2012" type="essai littéraire" id="L00017-1">
  Quand tu vois des flics tout retourner chez toi, insulter ton père et voir ta mère pleurer, tu peux que <neologisme>avoir le seum</neologisme>. 
@@ -425,7 +425,7 @@ Cette idée, inspirée de Tocqueville, est au coeur de l'approche du « <neologi
     </examples>
   </entry>
   <entry id="L00041">
-    <word pos="locution verbale">compenser carbone</word>
+    <word pos="locution: verbe, nom">compenser carbone</word>
     <examples>
       <texte url="http://www.liberation.fr/terre/0101651756-du-vent-dans-les-pales" date="2010" type="article environnement" id="L00041-1">
 Il ne pète ni ne rote sans immédiatement «<neologisme>compenser carbone</neologisme>».
@@ -671,7 +671,7 @@ Puis tout le monde s'y est mis : le Moyen Age et la Renaissance avec leurs ossem
     </examples>
   </entry>
   <entry id="L00063">
-    <word pos="nom/adj">Felin</word>
+    <word pos="nom">Felin</word>
     <examples>
       <texte url="http://www.usinenouvelle.com/article/qui-est-derriere-le-soldat-felin.N61746" date="2008" type="article économie" id="L00063-1">
 Qui est derrière le soldat <neologisme>Felin</neologisme> ?
@@ -706,7 +706,7 @@ Il est donc important que le Parlement européen se réunisse sur le thème des 
 </examples>
   </entry>
   <entry id="L00065">
-    <word pos="locution nominale">fenêtre pop-up</word>
+    <word pos="locution: nom, nom">fenêtre pop-up</word>
     <examples>
       <texte url="http://lamop.univ-paris1.fr/IMG/pdf/SportdecombatMac.pdf" date="2007" type="article scientifique universitaire" id="L00065-1">
 	Combien de sites consacrés au Moyen Âge servent de pages d'amorçage publicitaire, pour des produits proposés dans les marges ou en <neologisme>fenêtres pop up</neologisme> n'ayant qu'un rapport très lointain, voire aucun, avec le Moyen Âge.
@@ -1028,7 +1028,7 @@ Enfin, à la <neologisme>logithèque</neologisme>, les Saint-Mauriens peuvent ut
     </examples>
   </entry>
   <entry id="L00096">
-    <word pos="nom">mère fouettarde</word>
+    <word pos="MWE: nom, adj">mère fouettarde</word>
     <examples>
       <texte url="http://bonjourmaitresse.over-blog.net/article-6710295.html" date="" type="blog sm" id="L00096-1">
 	Les <neologisme>Mères-fouettardes</neologisme> étaient sexy mais très sévères et professionnelles.
@@ -1047,6 +1047,11 @@ Enfin, à la <neologisme>logithèque</neologisme>, les Saint-Mauriens peuvent ut
       <texte url="http://www.20minutes.fr/monde/130669-Monde-Les-jeunes-Espagnols-prives-de-toit.php" date="2007" type="article actualité" id="L00097-1">
 	La plupart d'entre eux sont à temps partiel et ont des salaires ne dépassant pas 1 000 e mensuel, d'où leur surnom de génération « <neologisme>mileuriste</neologisme> ».
       </texte>
+    </examples>
+  </entry>
+  <entry id="L000971">
+    <word pos="nom">mileuriste</word>
+    <examples>
       <texte url="expatespagne.forumculture.net/t2341p15-mini-bilan-de-retour" date="" type="forum espagne" id="L00097-2">
 	Je suis un peu plus que <neologisme>mileuriste</neologisme>.
       </texte>
@@ -1164,7 +1169,7 @@ Le soldat peut chuchoter pour communiquer ou bien rester à l'écoute de son env
     </examples>
   </entry>
   <entry id="L00110">
-    <word pos="adj/nom">people</word>
+    <word pos="nom">people</word>
     <examples>
       <texte url="http://madame.lefigaro.fr/celebrites/lart-de-trouver-bon-homme-200910-21735" date="2010" type="actualité célébrités" id="L00110-1">
 	Et ce parti pris peut sembler judicieux : un acteur, un sportif, un <neologisme>people</neologisme>, n'est-ce pas un peu segmentant ? 
@@ -1172,6 +1177,13 @@ Le soldat peut chuchoter pour communiquer ou bien rester à l'écoute de son env
       <texte url="http://www.lesoir.be/archives?url=/actualite/economie/2010-11-19/les-sms-qui-ont-trahi-les-people-804344.php" date="2010" type="actualité célébrité" id="L00110-2">
 	Les SMS qui ont trahi les <neologisme>people</neologisme>.
 	Ils ne sont pas les premiers <neologisme>people</neologisme> à voir leur infidélité dévoilée au grand jour par cette technologie.
+      </texte>
+    </examples>
+  </entry>
+  <entry id="L001101">
+    <word pos="adj">people</word>
+    <examples>
+      <texte url="http://www.lesoir.be/archives?url=/actualite/economie/2010-11-19/les-sms-qui-ont-trahi-les-people-804344.php" date="2010" type="actualité célébrité" idref="L00110-2">
 On connaît les frasques de David Beckham dont la vie amoureuse a longtemps été étalée dans la presse <neologisme>people</neologisme>.
       </texte>
     </examples>
@@ -1210,7 +1222,7 @@ Un ovni, enfin, a été présenté sous la forme d'un prototype encore un peu br
     </examples>
   </entry>
   <entry id="L00114">
-    <word pos="adj/nom">pipole</word>
+    <word pos="adj">pipole</word>
     <examples>
       <texte url="http://www.fssp.uaic.ro/argumentum/numarul%207/03_Dorna_tehno_final.pdf" date="2008" type="article scientifique universitaire" id="L00114-1">
 	Discours « <neologisme>pipole</neologisme> » et contexte démocratique 
@@ -1550,7 +1562,7 @@ Jean-Yves Fréchette souhaite transposer l'expertise et les connaissances qu'il 
     </examples>
   </entry>
   <entry id="L00144">
-    <word pos="locution nom">vivre ensemble</word>
+    <word pos="locution: nom, adverbe">vivre ensemble</word>
     <examples>
       <texte url="http://blog.lefigaro.fr/rioufol/2010/08/le-vrai-scandale-de-la.html" date="2010" type="blog politique" id="L00144-1">
 	Le communautarisme et sa délinquance spécifique sont une des révoltantes conséquences d'un angélisme imbécile qui persiste à penser que des peuples peuvent s'inviter chez d'autres peuples dans l'euphorie du <neologisme>vivre ensemble</neologisme>.
