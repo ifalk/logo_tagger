@@ -27,8 +27,8 @@ neo_test_lia.seq: ${SCRIPT_DIR}/lia_sentences.pl neo_test_lia.tok
 neo_test_lia.tagged: neo_test_lia.seq
 	cat $< | ${LIA_TAGG}/script/lia_tagg+reacc -guess > $@
 
-neo_test_lia_comp.txt: ${SCRIPT_DIR}/lia_compare.pl neo_test_lia.tagged ${NEO_TAGGER_TEST_SENT}
-	perl $< --gold=${NEO_TAGGER_TEST_SENT} neo_test_lia.tagged > $@
+neo_test_lia_comp.txt lia.txt: ${SCRIPT_DIR}/lia_compare.pl neo_test_lia.tagged ${NEO_TAGGER_TEST_SENT}
+	perl $< --gold=${NEO_TAGGER_TEST_SENT} --csv_out=lia.txt neo_test_lia.tagged > neo_test_lia_comp.txt
 
 
 ### Makefile ends here
