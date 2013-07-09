@@ -35,12 +35,14 @@ Stub documentation for stanford_compare.pl,
 =cut
 
 my %opts = (
-	    'gold' => '',
-	   );
+  'gold' => '',
+  'csv_out' => '',
+  );
 
 my @optkeys = (
-	       'gold=s',
-	      );
+  'gold=s',
+  'csv_out:s',
+  );
 
 unless (GetOptions (\%opts, @optkeys)) { pod2usage(2); };
 
@@ -113,20 +115,25 @@ foreach my $s ($sdom->findnodes('//s')) {
   }
 }
 
+my %gold_sf;
+
+
 foreach my $s_id (map { $_->[0] }
 		  sort { $a->[1] <=> $b->[1] } 
 		  map { [$_, /S_(\d+)/ ] }  keys %gold) {
 
   print "$s_id\n";
-  foreach my $word (sort keys %{ $gold{$s_id} }) {
+  foreach my $word (sort { lc($a) cmp lc($b) } keys %{ $gold{$s_id} }) {
     foreach my $pos (sort keys %{ $gold{$s_id}->{$word} }) {
+      push(@{ $gold_sf{$s_id}->{gold} }, [ $word, $pos ]);
       print "GOLD: $word, $pos, $gold{$s_id}->{$word}->{$pos}\n";
     }
   }
 
   if ($stanf{$s_id}) {
-    foreach my $word (sort keys %{ $stanf{$s_id} }) {
+    foreach my $word (sort { lc($a) cmp lc($b) } keys %{ $stanf{$s_id} }) {
       foreach my $pos (sort keys %{ $stanf{$s_id}->{$word} }) {
+	push(@{ $gold_sf{$s_id}->{tagger} }, [ $word, $pos ]);
 	print "STANF: $word, $pos, $stanf{$s_id}->{$word}->{$pos}\n";
       }
     }
@@ -136,6 +143,43 @@ foreach my $s_id (map { $_->[0] }
 
 
 }
+
+
+if ($opts{csv_out}) {
+
+  if (open(my $fh, '>:encoding(utf-8)', $opts{csv_out})) {
+
+    print $fh join("\t", qw(s_id g_word t_word g_pos t_pos correct?)), "\n";
+
+    foreach my $s_id (map { $_->[0] }
+		      sort { $a->[1] <=> $b->[1] } 
+		      map { [$_, /S_(\d+)/ ] }  keys %gold_sf) {
+
+      foreach my $wp_ref_index (0 .. $#{ $gold_sf{$s_id}->{gold} }) {
+
+	my ($g_word, $g_pos) = @{ $gold_sf{$s_id}->{gold}->[$wp_ref_index] };
+	my ($t_word, $t_pos) = @{ $gold_sf{$s_id}->{tagger}->[$wp_ref_index] };
+	
+	my $correct = 0;
+
+	if (lc($g_pos) eq lc($t_pos)) {
+	  $correct = 1;
+	} elsif ($g_pos eq 'nom' and $t_pos =~ m{ \A N }xms) {
+	  $correct = 1;
+	} elsif ($g_pos eq 'adj' and $t_pos =~ m{ \A A }xms) {
+	  $correct = 1;
+	} elsif ($g_pos eq 'verbe' and $t_pos =~ m{ \A V }xms) {
+	  $correct = 1;
+	}
+
+	print $fh join("\t", $s_id, $g_word, $t_word, $g_pos, $t_pos, $correct), "\n";
+      }
+    }
+  } else {
+    warn "Couldn't open $opts{csv_output} for output: $!\n";
+  }
+}
+
 
 1;
 
