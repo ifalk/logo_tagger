@@ -63,12 +63,21 @@ while (my $line = <$fh>) {
 
   my @words = split(/\s+/, $line);
 
-  if ($words[0] =~ m{ S_\d+ }xms) {
-    print $words[0], "\n";
+  my $word = shift @words;
+
+  if ($word =~ m{ S_\d+ }xms) {
+    print $word, "\n";
+  } elsif ($word eq 'NEO') {
+
+    print $word, "\n";
+    $word = shift @words;
+    print lc($word), "\n";
+
   } else {
-    print lc($words[0]), "\n";
+    print lc($word), "\n";
   }
-  foreach my $word (@words[1..$#words]) {
+
+  while ($word = shift(@words)) {
     print $word, "\n";
   }
 

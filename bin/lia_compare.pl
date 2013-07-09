@@ -107,62 +107,64 @@ my $line = <$fh>;
 
 use List::MoreUtils qw(indexes natatime);
 
-LINE:
-  while (defined($line)) {
-
+LINE: 
+  while (defined($line) and $line =~ m{ \A <s> }xms) {
+    $line = <$fh>;
+    
     # print STDERR $line;
+    
+    if (my $new_s_id = ($line =~ m{ \A (S_\d+) \s }xms)[0]) {
 
-    if ($line =~ m{ \A <s> }xms) {
-      $line = <$fh>;
+      if ($s_id) {
+	
+	# print STDERR "Sid: ", $s_id, "\n";
 
-      # print STDERR $line;
+	if (@sent) {
 
-      if (my $new_s_id = ($line =~ m{ \A (S_\d+) \s }xms)[0]) {
-
-	if ($s_id) {
-
-	  # print STDERR "Sid: ", $s_id, "\n";
-
-	  if (@sent) {
-	    # print STDERR "Sent: ", join(' ', map { $_->[0] } @sent), "\n";
-	    my @neo_indexes = indexes { $_->[0] eq 'NEO' } @sent;
-	    my $it = natatime 2, @neo_indexes;
-	    while (my @pair = $it->()) {
-	      my $word = join(' ', map { $_->[0] } @sent[$pair[0]+1 .. $pair[1]-1]);
-	      my $pos = join(' ', map { $_->[1] } @sent[$pair[0]+1 .. $pair[1]-1]);
-	      $lia{$s_id}->{$word}->{$pos}++;
-	    }
-	  } else {
-	    print STDERR "No sentence for $s_id\n";
+	  # print STDERR "Sent: ", join(' ', map { $_->[0] } @sent), "\n";
+	  my @neo_indexes = indexes { $_->[0] eq 'NEO' } @sent;
+	  my $it = natatime 2, @neo_indexes;
+	  while (my @pair = $it->()) {
+	    my $word = join(' ', map { $_->[0] } @sent[$pair[0]+1 .. $pair[1]-1]);
+	    my $pos = join(' ', map { $_->[1] } @sent[$pair[0]+1 .. $pair[1]-1]);
+	    $lia{$s_id}->{$word}->{$pos}++;
 	  }
-	}
-	$s_id = "$new_s_id";
-	
-	# print STDERR $new_s_id, "\n";
-	
-	@sent = ();
-	
-	$line = <$fh>; # </s>
-	# print STDERR "FH: $line";
-	$line = <$fh>; # <s>
-	# print STDERR "FH: $line";
-	
-	$line = <$fh>;
-	while (defined($line) and $line !~ m{ \A </s> }xms) {
-	  # print STDERR $line;
-	  chomp($line);
-	  my ($word, $pos) = split(/\s+/, $line);
-	  push(@sent, [$word, $pos]);
-	  $line = <$fh>;
+	} else {
+	  print STDERR "No sentence for $s_id\n";
 	}
       }
-    } else {
-      print STDERR "Unexpected line $line\n";
+      $s_id = "$new_s_id";
+	
+      # print STDERR $new_s_id, "\n";
+      
+      @sent = ();
+	
+      $line = <$fh>; # </s>
+      # print STDERR "$line (expected </s>)\n";
+      $line = <$fh>; # <s>
+      # print STDERR "$line (expected <s>)\n";
+	
+      $line = <$fh>;
+      while (defined($line) and $line !~ m{ \A </s> }xms) {
+	# print STDERR $line;
+	chomp($line);
+	my ($word, $pos) = split(/\s+/, $line);
+	push(@sent, [$word, $pos]);
+	$line = <$fh>;
+      }
+
+      $line = <$fh>; # <s>
+      # print STDERR "$line (expected <s>)", "\n";
+      next LINE;
     }
-    $line = <$fh>;
 }
 
+
+
 if ($s_id) {
+
+  # print STDERR "Sid: $s_id\n";
+
   if (@sent) {
 
     # print STDERR "Sent: ", join(' ', map { $_->[0] } @sent), "\n";
@@ -178,6 +180,7 @@ if ($s_id) {
     print STDERR "No sentence for $s_id\n";
   }
 }
+
 
 close $fh;
 
