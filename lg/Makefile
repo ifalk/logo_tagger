@@ -24,7 +24,7 @@ neo_test_lg.tagged: lg_input.txt
 	export LGTAGGER_PATH=${LG_HOME} ; java -Xms1024M -Xmx1024M -cp /home/falk/lgtagger-1.1/classes:/home/falk/lgtagger-1.1/lib/JSAP-2.1.jar:/home/falk/lgtagger-1.1/lib/berkeleyParser-V1_1-fr.jar fr/upemlv/lgtools/tagging/LGTaggerMain --is_tokenized -m /home/falk/lgtagger-1.1/French/models/default lg_input.txt > $@
 
 
-neo_test_lg_comp.txt: ${SCRIPT_DIR}/lg_compare.pl neo_test_lg.tagged ${NEO_TAGGER_TEST_SENT}
-	perl $< --gold=${NEO_TAGGER_TEST_SENT} neo_test_lg.tagged > $@
+neo_test_lg_comp.txt lg.txt: ${SCRIPT_DIR}/lg_compare.pl neo_test_lg.tagged ${NEO_TAGGER_TEST_SENT}
+	perl $< --gold=${NEO_TAGGER_TEST_SENT} --csv_out=lg.txt neo_test_lg.tagged > neo_test_lg_comp.txt
 
 ### Makefile ends here

@@ -63,12 +63,14 @@ The pos tagging produced by Lg. The format is the following :
 
 
 my %opts = (
-	    'gold' => '',
-	   );
+  'gold' => '',
+  'csv_out' => '',
+  );
 
 my @optkeys = (
-	       'gold=s',
-	      );
+  'gold=s',
+  'csv_out:s',
+  );
 
 unless (GetOptions (\%opts, @optkeys)) { pod2usage(2); };
 
@@ -77,8 +79,8 @@ unless (@ARGV) { pod2usage(2); };
 print STDERR "Options:\n";
 print STDERR Dumper(\%opts);
 
-binmode(STDOUT, ':utf8');
-binmode(STDERR, ':utf8');
+binmode(STDOUT, ':encoding(utf8)');
+binmode(STDERR, ':encoding(utf8)');
 
 use XML::LibXML;
 
@@ -170,29 +172,66 @@ if ($s_id) {
 
 close $fh;
 
+my %gold_lg;
+
 foreach my $s_id (map { $_->[0] }
 		  sort { $a->[1] <=> $b->[1] } 
 		  map { [$_, /S_(\d+)/ ] }  keys %gold) {
 
   print "$s_id\n";
-  foreach my $word (sort keys %{ $gold{$s_id} }) {
+  foreach my $word (sort { lc($a) cmp lc($b) } keys %{ $gold{$s_id} }) {
     foreach my $pos (sort keys %{ $gold{$s_id}->{$word} }) {
+      push(@{ $gold_lg{$s_id}->{gold} }, [ $word, $pos ]);
       print "GOLD: $word, $pos, $gold{$s_id}->{$word}->{$pos}\n";
     }
   }
 
   if ($lg{$s_id}) {
-    foreach my $word (sort keys %{ $lg{$s_id} }) {
+    foreach my $word (sort { lc($a) cmp lc($b) } keys %{ $lg{$s_id} }) {
       foreach my $pos (sort keys %{ $lg{$s_id}->{$word} }) {
+	push(@{ $gold_lg{$s_id}->{tagger} }, [ $word, $pos ]);
 	print "LG: $word, $pos, $lg{$s_id}->{$word}->{$pos}\n";
       }
     }
   } else {
-    print "No Lg tagging for $s_id\n";
+    print STDERR "No Lg tagging for $s_id\n";
   }
-
-
 }
+
+if ($opts{csv_out}) {
+
+  if (open(my $fh, '>:encoding(utf-8)', $opts{csv_out})) {
+
+    print $fh join("\t", 's_id', 'g_word', 't_word', 'g_pos', 't_pos', 'correct?'), "\n";
+
+    foreach my $s_id (map { $_->[0] }
+		      sort { $a->[1] <=> $b->[1] } 
+		      map { [$_, /S_(\d+)/ ] }  keys %gold_lg) {
+
+      foreach my $wp_ref_index (0 .. $#{ $gold_lg{$s_id}->{gold} }) {
+
+	my ($g_word, $g_pos) = @{ $gold_lg{$s_id}->{gold}->[$wp_ref_index] };
+	my ($t_word, $t_pos) = @{ $gold_lg{$s_id}->{tagger}->[$wp_ref_index] };
+	
+	my $correct = lc($g_pos) eq lc($t_pos) ? 1 : 0;
+
+	unless ($correct) {
+	  if ($g_pos eq 'verbe' and $t_pos =~ m{ \A V }xms) {
+	    $correct = 1;
+	  } elsif ($g_pos eq 'nom' and $t_pos eq 'NC') {
+	    $correct = 1;
+	  }
+	};
+	print $fh join("\t", $s_id, $g_word, $t_word, $g_pos, $t_pos, $correct), "\n";
+      }
+    }
+  } else {
+    warn "Couldn't open $opts{csv_output} for output: $!\n";
+  }
+}
+
+close $fh;
+
 
 1;
 

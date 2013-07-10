@@ -1,0 +1,4 @@
+correct 190/442 = 42.99%
+
+- many common nouns tagged as proper nouns.
+- words are split at '-'
