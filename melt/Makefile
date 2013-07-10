@@ -19,7 +19,7 @@ melt_input.txt: ${SCRIPT_DIR}/prepare_4_melt.pl ${NEO_TAGGER_TEST_SENT}
 neo_test_melt.tagged: melt_input.txt
 	cat $< | MElt -t -c > $@
 
-neo_test_melt_comp.txt: ${SCRIPT_DIR}/melt_compare.pl neo_test_melt.tagged ${NEO_TAGGER_TEST_SENT}
-	perl $< --gold=${NEO_TAGGER_TEST_SENT} neo_test_melt.tagged > $@
+neo_test_melt_comp.txt melt.txt: ${SCRIPT_DIR}/melt_compare.pl neo_test_melt.tagged ${NEO_TAGGER_TEST_SENT}
+	perl $< --gold=${NEO_TAGGER_TEST_SENT} --csv_out=melt.txt neo_test_melt.tagged > neo_test_melt_comp.txt
 
 ### Makefile ends here
