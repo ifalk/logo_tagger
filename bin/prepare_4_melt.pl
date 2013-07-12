@@ -36,12 +36,12 @@ Stub documentation for prepare_4_melt.pl,
 
 
 my %opts = (
-	    'an_option' => 'default value',
-	   );
+  'neo' => 1,
+  );
 
 my @optkeys = (
-	       'an_option:s',
-	      );
+  'neo!',
+  );
 
 unless (GetOptions (\%opts, @optkeys)) { pod2usage(2); };
 
@@ -60,23 +60,26 @@ my $dom = XML::LibXML->load_xml(
   );
 
 foreach my $s ($dom->findnodes('//s')) {
-  my $s_id = $s->getAttribute('id');
-  $s_id =~ s{ \A S_ }{}xms;
-  print "$s_id\n";
-  
-  print join(' ', map {
-    my $type = $_->nodeType();
-    
-    if ($type == 3) {
-      $_->nodeValue();
-    } elsif ($type == 1) {
-      my $neo = $_->textContent();
-      "NEO $neo NEO";
-    }
-       } $s->childNodes()
-    ), "\n";
-}
 
+  if ($opts{neo}) {
+    my $s_id = $s->getAttribute('id');
+    $s_id =~ s{ \A S_ }{}xms;
+    print "$s_id\n";
+    
+    print join(' ', map {
+      my $type = $_->nodeType();
+      
+      if ($type == 3) {
+	$_->nodeValue();
+      } elsif ($type == 1) {
+	"NEO $neo NEO";
+      }
+	       } $s->childNodes()
+      ), "\n";
+  } else {
+    print $s->textContent();
+  }
+}
 1;
 
 
