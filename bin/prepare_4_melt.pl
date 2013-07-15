@@ -59,27 +59,53 @@ my $dom = XML::LibXML->load_xml(
   location => $ARGV[0],
   );
 
-foreach my $s ($dom->findnodes('//s')) {
+my @sent_index;
 
-  if ($opts{neo}) {
+foreach my $entry ($dom->findnodes('//entry')) {
+
+  my $pos = ($entry->findnodes('word'))[0]->getAttribute('pos');
+
+  foreach my $s ($entry->findnodes('.//s')) {
+
     my $s_id = $s->getAttribute('id');
-    $s_id =~ s{ \A S_ }{}xms;
-    print "$s_id\n";
+
+    if ($opts{neo}) {
+      $s_id =~ s{ \A S_ }{}xms;
+      print "$s_id\n";
     
-    print join(' ', map {
-      my $type = $_->nodeType();
-      
-      if ($type == 3) {
-	$_->nodeValue();
-      } elsif ($type == 1) {
-	"NEO $neo NEO";
+      print join(' ', map {
+	my $type = $_->nodeType();
+	
+	if ($type == 3) {
+	  $_->nodeValue();
+	} elsif ($type == 1) {
+	  my $neo = $_->textContent();
+	  "NEO $neo NEO";
+	}
+		 } $s->childNodes()
+	), "\n";
+    } else {
+      my $text = $s->textContent();
+      $text =~ s{([.,"()'«»])}{ $1 }xmsg;
+      print $text, "\n";
+      my @neos;
+      foreach my $neo (map { $_->textContent() } $s->findnodes('neologisme')) {
+	push(@neos, [ $neo, $pos ]); 
       }
-	       } $s->childNodes()
-      ), "\n";
-  } else {
-    print $s->textContent();
+      push (@sent_index, [ $s_id,  @neos ]);
+    }
   }
 }
+
+unless ($opts{neo}) {
+
+  if (open (my $fh, '>:encoding(utf-8)', 'neo_index.pl')) {
+    print $fh Dumper(\@sent_index);
+  } else {
+    print STDERR "Couldn't open neo_index.pl for output: $!\n";
+  }
+}
+
 1;
 
 
