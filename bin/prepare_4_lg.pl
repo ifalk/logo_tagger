@@ -36,12 +36,12 @@ Stub documentation for prepare_4_lg.pl,
 
 
 my %opts = (
-	    'list_known_words' => '',
-	   );
+  'neo' => 1,
+  );
 
 my @optkeys = (
-	       'list_known_words:s',
-	      );
+  'neo!',
+  );
 
 unless (GetOptions (\%opts, @optkeys)) { pod2usage(2); };
 
@@ -59,37 +59,61 @@ my $dom = XML::LibXML->load_xml(
   location => $ARGV[0],
   );
 
-my %s_ids;
-foreach my $s ($dom->findnodes('//s')) {
-  my $s_id = $s->getAttribute('id');
-  $s_ids{$s_id}++;
-  $s_id =~ s{ S_ }{}xms;
-  print "$s_id\n";
-  
-  print join(' ', map {
-    my $type = $_->nodeType();
-    
-    if ($type == 3) {
-      $_->nodeValue();
-    } elsif ($type == 1) {
-      my $neo = $_->textContent();
-      "NEO $neo NEO";
-    }
-	     } $s->childNodes()
-    ), "\n";
-}
+my @sent_index;
 
-if ($opts{list_known_words}) {
-  if (open (my $fh, '>:encoding(utf-8)', $opts{list_known_words})) {
-    foreach my $s_id (map { $_->[0] }
-		      sort { $a->[1] <=> $b->[1] } 
-		      map { [$_, /S_(\d+)/ ] } keys %s_ids) {
-      print $fh join("\t", $s_id, $s_id, 'SENT'), "\n";
+my %s_ids;
+
+foreach my $entry ($dom->findnodes('//entry')) {
+
+  my $pos = ($entry->findnodes('word'))[0]->getAttribute('pos');
+
+  foreach my $s ($entry->findnodes('.//s')) {
+
+    my $s_id = $s->getAttribute('id');
+
+    if ($opts{neo}) {
+      
+      $s_ids{$s_id}++;
+      $s_id =~ s{ S_ }{}xms;
+      print "$s_id\n";
+      
+      print join(' ', map {
+	my $type = $_->nodeType();
+	
+	if ($type == 3) {
+	  $_->nodeValue();
+	} elsif ($type == 1) {
+	  my $neo = $_->textContent();
+	  "NEO $neo NEO";
+	}
+		 } $s->childNodes()
+	), "\n";
+    } else {
+      my $text = $s->textContent();
+      $text =~ s{ \.\.\. }{3DOTS}xmsg;
+      $text =~ s{ \. (?=.) }{}xmsg;
+      $text =~ s{ 3DOTS }{ - }xmsg;
+      $text =~ s{ ; \z }{.}xms;
+      $text =~ s{ ; }{,}xmsg;
+      print $text, "\n";
+      my @neos;
+      foreach my $neo (map { $_->textContent() } $s->findnodes('neologisme')) {
+	push(@neos, [ $neo, $pos ]); 
+      }
+      push (@sent_index, [ $s_id,  @neos ]);
     }
-  } else {
-    print STDERR "Couldn't open $opts{list_known_words} for output: $!\n";
   }
 }
+
+unless ($opts{neo}) {
+
+  if (open (my $fh, '>:encoding(utf-8)', 'neo_index.pl')) {
+    print $fh Dumper(\@sent_index);
+  } else {
+    print STDERR "Couldn't open neo_index.pl for output: $!\n";
+  }
+}
+
 
 1;
 
