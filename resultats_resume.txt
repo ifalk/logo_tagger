@@ -10,9 +10,21 @@ lia:        319/443 = 72.01 %
 treetagger: 339/442 = 76.70 %
 #semtag:      71/442 = 16.06 %
 semtag:      291/443 = 65.69 %
-talismane:   350/427 = 81.97 % (NC=NPP)
+talismane:   360/442 = 81.45 % (NC=NPP)
 
 Melt score when NC=NPP: 83.48 % (369/442)
+
+common nouns = proper nouns
+25/03/2014
+---------------------------
+
+stanford   377/422 = 85.29 %
+melt       368/442 = 83.26 %
+lg 	   324/442 = 73.30 %
+lia	   319/442 = 72.17 %
+treetagger 339/442 = 76.70 %
+semtag     291/442 = 65.84 %
+talismane  360/442 = 81.45 %
 
 
 
@@ -20,6 +32,40 @@ Melt score when NC=NPP: 83.48 % (369/442)
 
 racolable arguably is adjective and not verb as in gold
 stanford, melt and talismane all tag them as adjective
+
+vivre ensemble: gold-> nom, adverbe 
+                melt, stanford, lg, talismane -> vinf, adverbe arguably ok
+		lia -> NMS NMS
+		sem_tag -> ADV _ADV
+                tt ok
+--------------------------------------------------
+
+Islamo sceptique -> melt ADV ADJ
+                 -> gold adj ?
+
+Marie Chantaleries : GOLD -> np
+TALISMANE : NC NPP
+Melt : NPP NPP
+
+
+
+Influence of tokenisation :
+----------------------------
+
+TALISMANE: no tokenisation at '-' -> pouvant-réadvenir are not split -> réadvenir is not recognised as verb.
+
+Melt, stanford, sem-tag: same
+
+lia : pouvant-réadvenir -> pouvant - réadvenir in preprocessing (IF)
+      => réadvenir correctly tagged as verb.
+
+lg: pouvant-réadvenir is split, réadvenir tagged as NC, - PONCT and pouvant VPR
+
+TT: in tokenisation pouvant-réadvenir split into pouvant- and réadvenir because 'réadvenir' is marked as <neo> and TT can be told to ignore xml tags.
+
+Remark
+=========
+In fact the neologism "réadvenir, verbe" is part of a second neologism "le pouvant-réadvenir" which is a common noun. Here only réadvenir is marked => change pouvant-réadvenir in edited xml file into "pouvant réadvenir" and rebuild sentence xml file.
 
 
 

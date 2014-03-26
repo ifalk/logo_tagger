@@ -263,7 +263,7 @@ S_257	médiévalgie	médiévalgie	nom	NC	1
 S_258	médiévalgie	médiévalgie	nom	NC	1
 S_259	médiévalgie	médiévalgie	nom	NC	1
 S_260	mémorette	mémorette	nom	NC	1
-S_261	Mères-fouettardes	Mères-fouettardes	MWE: nom, adj	NPP	0
+S_261	Mères-fouettardes	Mères-fouettardes	MWE: nom, adj	NPP	1
 S_262	Mère fouettarde	Mère fouettarde	MWE: nom, adj	NPP ADJ	1
 S_263	mère fouettarde	mère fouettarde	MWE: nom, adj	NC ET	0
 S_264	mileuriste	mileuriste	adj	ADJ	1
@@ -357,7 +357,7 @@ S_351	RDQ	RDQ	nom	NPP	1
 S_352	RDQ	RDQ	nom	NC	1
 S_353	réabstenu	réabstenu	verbe	ADV	0
 S_354	réabstenir	réabstenir	verbe	VINF	1
-S_355	réadvenir	réadvenir	verbe	NC	0
+S_355	réadvenir	pouvant-réadvenir	verbe	NC	0
 S_356	rebilanter	rebilanter	verbe	VINF	1
 S_357	Redéfumer	Redéfumer	verbe	VINF	1
 S_358	redéfumer	redéfumer	verbe	VINF	1

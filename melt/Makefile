@@ -28,7 +28,7 @@ neo_test_wo_neo_melt.tagged: melt_input_wo_neo.txt
 # neo_test_melt_comp.txt melt.txt: ${SCRIPT_DIR}/melt_compare.pl neo_test_melt.tagged ${NEO_TAGGER_TEST_SENT}
 # 	perl $< --gold=${NEO_TAGGER_TEST_SENT} --csv_out=melt.txt neo_test_melt.tagged > neo_test_melt_comp.txt
 
-melt_neos_comp.txt melt.txt: ${SCRIPT_DIR}/melt_compare_wo.pl neo_test_wo_neo_melt.tagged neo_index.pl
-	perl $< --gold=neo_index.pl --csv_out=melt.txt neo_test_wo_neo_melt.tagged > melt_neos_comp.txt 
+melt_neos_comp.txt melt.txt tagset.txt: ${SCRIPT_DIR}/melt_compare_wo.pl neo_test_wo_neo_melt.tagged neo_index.pl
+	perl $< --gold=neo_index.pl --csv_out=melt.txt --tagset_out=tagset.txt neo_test_wo_neo_melt.tagged > melt_neos_comp.txt 
 
 ### Makefile ends here

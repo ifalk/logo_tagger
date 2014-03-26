@@ -32,8 +32,8 @@ neo_test_wo_neo_lg.tagged: lg_input_wo_neo.txt
 # neo_test_lg_comp.txt lg.txt: ${SCRIPT_DIR}/lg_compare.pl neo_test_lg.tagged ${NEO_TAGGER_TEST_SENT}
 # 	perl $< --gold=${NEO_TAGGER_TEST_SENT} --csv_out=lg.txt neo_test_lg.tagged > neo_test_lg_comp.txt
 
-lg_neos_comp.txt lg.txt: ${SCRIPT_DIR}/lg_compare_wo.pl neo_test_wo_neo_lg.tagged neo_index.pl
-	perl $< --gold=neo_index.pl --csv_out=lg.txt neo_test_wo_neo_lg.tagged > lg_neos_comp.txt 
+lg_neos_comp.txt lg.txt tagset.txt: ${SCRIPT_DIR}/lg_compare_wo.pl neo_test_wo_neo_lg.tagged neo_index.pl
+	perl $< --gold=neo_index.pl --csv_out=lg.txt --tagset_out=tagset.txt neo_test_wo_neo_lg.tagged > lg_neos_comp.txt 
 
 
 

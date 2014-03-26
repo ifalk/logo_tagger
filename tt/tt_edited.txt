@@ -42,6 +42,7 @@ S_40	aronistes	aronistes	nom	NOM	1
 S_41	aronistes	aronistes	nom	NOM	1
 S_42	assistanat	assistanat	nom	NOM	1
 S_43	assistant maternel	assistant maternel	MWE: nom, adj	NOM ADJ	1
+S_43	assistants maternels	assistant maternel	MWE: nom, adj	VER:ppre ADJ	0
 S_44	assistant maternel	assistant maternel	MWE: nom, adj	NOM ADJ	1
 S_45	assistant maternel	assistant maternel	MWE: nom, adj	NOM ADJ	1
 S_46	athlétiser	athlétiser	verbe	VER:infi	1
@@ -344,7 +345,7 @@ S_339	procréationniste	procréationniste	nom	ADJ	0
 S_340	proratiser	proratiser	verbe	VER:infi	1
 S_341	proratisé	proratisé	verbe	VER:pper	1
 S_342	proratise	proratise	verbe	VER:pres	1
-S_343	proratise 	proratise	verbe	VER:pres	1
+S_343	proratise	proratise	verbe	VER:pres	1
 S_344	proratise	proratise	verbe	VER:subp	1
 S_345	proratise	proratise	verbe	VER:subp	1
 S_346	racolable	racolable	verbe	ADJ	0

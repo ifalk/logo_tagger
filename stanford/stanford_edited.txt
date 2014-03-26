@@ -1,4 +1,4 @@
-s_id	g_word	t_word	g_pos	t_pos	correct?
+ns_id	g_word	t_word	g_pos	t_pos	correct?
 S_1	abracadabrantesquement	abracadabrantesquement	adv	ADV	1
 S_2	accessibilisable	accessibilisable	adj	A	1
 S_3	accessibilisable	accessibilisable	adj	A	1
@@ -41,7 +41,8 @@ S_39	apomédiation	l'apomédiation	nom	N	1
 S_40	aronistes	aronistes	nom	N	1
 S_41	aronistes	aronistes	nom	N	1
 S_42	assistanat	d'assistanat	nom	A	0
-S_43	assistant maternel	d'assistant maternel	MWE: nom, adj	A A	0
+S_43	assistant maternel	assistants maternels	MWE: nom, adj	N A	1
+S_43	assistants maternels	d'assistant maternel	MWE: nom, adj	A A	0
 S_44	assistant maternel	assistant maternel	MWE: nom, adj	A N	0
 S_45	assistant maternel	assistant maternel	MWE: nom, adj	A N	0
 S_46	athlétiser	athlétiser	verbe	V	1
@@ -254,7 +255,7 @@ S_249	mandature	mandature	nom	N	1
 S_250	Marie-Chantal	Marie-Chantal	nom	N	1
 S_251	Marie-Chantal	Marie-Chantal	nom	N	1
 S_252	MARIE-CHANTAL	MARIE-CHANTAL	nom	N	1
-S_253	Marie Chantaleries	Marie Chantaleries	nom	N N	1
+S_253	Marie Chantaleries	Marie Chantaleries	nom	N N	0
 S_254	marie-chantalerie	marie-chantalerie	nom	N	1
 S_255	marinistes	marinistes	nom	A	0
 S_256	mariniste	mariniste	adj	A	1
@@ -356,7 +357,7 @@ S_351	RDQ	RDQ	nom	N	1
 S_352	RDQ	RDQ	nom	N	1
 S_353	réabstenu	réabstenu	verbe	V	1
 S_354	réabstenir	réabstenir	verbe	V	1
-S_355	réadvenir	pouvant-réadvenir	verbe	N	0
+S_355	réadvenir	réadvenir	verbe	V	1
 S_356	rebilanter	rebilanter	verbe	V	1
 S_357	Redéfumer	Redéfumer	verbe	V	1
 S_358	redéfumer	redéfumer	verbe	V	1

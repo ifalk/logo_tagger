@@ -1,0 +1,241 @@
+Felin - nom/adj
+======
+
+  <entry id="L00063">
+    <word pos="nom/adj">Felin</word>
+    <examples>
+      <texte url="http://www.usinenouvelle.com/article/qui-est-derriere-le-soldat-felin.N61746" date="2008" type="article économie" id="L00063-1">
+<s id="S_174">Qui est derrière le soldat <neologisme>Felin</neologisme> ?</s>
+
+<s id="S_175">Pour remplir sa mission, Sagem DS, fournisseur de l'équipement <neologisme>Felin</neologisme>, s'appuie sur une vingtaine de partenaires.</s>
+
+<s id="S_176">Et elle ne déroge pas à la règle quant à la fourniture de son équipement <neologisme>Felin</neologisme> (Fantassin à équipements et liaisons intégrés) de nouvelle génération.</s>
+
+<s id="S_177">Il apporte ce qui fait la force de la combinaison du combattant <neologisme>Felin</neologisme> : sa capacité à intégrer de multiples équipements (électroniques, optroniques, radio) sur le gilet de combat du soldat, bourré de câbles et de connecteurs.</s>
+
+<s id="S_178">Pour s'intégrer au système <neologisme>Felin</neologisme>, Sagem DS a exigé des modifications sur les produits conçus par les fournisseurs traditionnels de l'armée.</s>
+
+<s id="S_179">La PME Elno, installée à Argenteuil, fournit à <neologisme>Felin</neologisme> l'ostéophone, une véritable nouveauté accroissant la discrétion du combattant.</s>
+
+<s id="S_180">Le <neologisme>Felin</neologisme> bénéficie grandement de la dualité des technologies militaires et civiles.</s>
+      </texte>
+    </examples>
+  </entry>
+
+mariniste nom/adj ?
+=========
+
+  <entry id="L00093">
+    <word pos="nom">mariniste</word>
+    <examples>
+      <texte url="http://www.latribune-online.com/suplements/international/55271.html" date="2011" type="article politique" id="L00093-1">
+<s id="S_255">Delaume relève qu'«en France, au sein même du Front national cohabitent désormais les tenants ombrageux d'une extrême droite traditionnelle et austère à la Gollnish et ceux d'une droite radicale jeune, moderne et dynamique, qui s'auto-désignent plus volontiers comme "<neologisme>marinistes</neologisme>" que comme militants frontistes».</s>
+      </texte>
+    </examples>
+  </entry>
+  <entry id="L000931">
+    <word pos="adj">mariniste</word>
+    <examples>
+      <texte url="http://www.lexpress.fr/actualite/politique/norvege-un-conseiller-de-marine-le-pen-declenche-un-tolle-a-gauche_1014922.html" date="2011" type="article politique" id="L000931-1">
+<s id="S_256">L'état-major frontiste est d'autant plus embarrassé que Laurent Ozon est l'une des figures montantes du FN <neologisme>mariniste</neologisme>.</s>
+      </texte>
+    </examples>
+  </entry>
+
+mileuriste nom/adj?
+===========
+
+  <entry id="L00097">
+    <word pos="adj">mileuriste</word>
+    <examples>
+      <texte url="http://www.20minutes.fr/monde/130669-Monde-Les-jeunes-Espagnols-prives-de-toit.php" date="2007" type="article actualité" id="L00097-1">
+<s id="S_264">La plupart d'entre eux sont à temps partiel et ont des salaires ne dépassant pas 1 000 e mensuel, d'où leur surnom de génération « <neologisme>mileuriste</neologisme> ».</s>
+      </texte>
+      <texte url="expatespagne.forumculture.net/t2341p15-mini-bilan-de-retour" date="" type="forum espagne" id="L00097-2">
+<s id="S_265">Je suis un peu plus que <neologisme>mileuriste</neologisme>.</s>
+      </texte>
+    </examples>
+  </entry>
+
+people  adj/nom ?
+=======
+
+  <entry id="L00110">
+    <word pos="adj/nom">people</word>
+    <examples>
+      <texte url="http://madame.lefigaro.fr/celebrites/lart-de-trouver-bon-homme-200910-21735" date="2010" type="actualité célébrités" id="L00110-1">
+<s id="S_291">Et ce parti pris peut sembler judicieux : un acteur, un sportif, un <neologisme>people</neologisme>, n'est-ce pas un peu segmentant ?</s>
+      </texte>
+      <texte url="http://www.lesoir.be/archives?url=/actualite/economie/2010-11-19/les-sms-qui-ont-trahi-les-people-804344.php" date="2010" type="actualité célébrité" id="L00110-2">
+<s id="S_292">Les SMS qui ont trahi les <neologisme>people</neologisme>.</s>
+
+<s id="S_293">Ils ne sont pas les premiers <neologisme>people</neologisme> à voir leur infidélité dévoilée au grand jour par cette technologie.</s>
+
+<s id="S_294">On connaît les frasques de David Beckham dont la vie amoureuse a longtemps été étalée dans la presse <neologisme>people</neologisme>.</s>
+      </texte>
+    </examples>
+  </entry>
+
+pipole  nom/adj ?
+======
+
+  <entry id="L00114">
+    <word pos="adj/nom">pipole</word>
+    <examples>
+      <texte url="http://www.fssp.uaic.ro/argumentum/numarul%207/03_Dorna_tehno_final.pdf" date="2008" type="article scientifique universitaire" id="L00114-1">
+<s id="S_305">Discours « <neologisme>pipole</neologisme> » et contexte démocratique</s>
+
+<s id="S_306">Là, l'art de la manipulation utilise les formes imperceptibles et inconscientes de la persuasion, nul besoin d'être un expert pour comprendre que la formation des opinions et des jugements de masse se trouve fortement influencée, au point que les cadres dirigeants de l'économie et de la politique posent délibérément pour les photographes ou se laissent « piéger » par eux ou par les émissions de télévision ad hoc, afin de faire partie de la communauté « <neologisme>pipole</neologisme> ».</s>
+
+<s id="S_307">La société politique s'est travestie en société « <neologisme>pipole</neologisme> ».</s>
+
+<s id="S_308">Ainsi, pareillement et en toute complicité, les patrons de presse et de télévision se frottent les mains, car vendre du papier ou des images est le nerf du système pour la propagande « <neologisme>pipole</neologisme> ».</s>
+
+<s id="S_309">L'image (sous forme de photo) dans la presse « <neologisme>pipole</neologisme> » brise des barrières.</s>
+
+<s id="S_310">Par ailleurs, l'autre élément nouveau véhiculé par la propagande « <neologisme>pipole</neologisme> » se résume ainsi : il faut savoir dévoiler sa propre intimité et celle des autres.</s>
+
+<s id="S_311">Le charme « <neologisme>pipole</neologisme> » de la politique s'est depuis longtemps décomplexé.</s>
+
+<s id="S_312">Il n'y a pas de doute, l'effet « <neologisme>pipole</neologisme> » en politique ne date pas d'aujourd'hui.</s>
+
+<s id="S_313">Le candidat Sarkozy, en connaisseur des médias, s'est affiché dans la presse « <neologisme>pipole</neologisme> » avec ses invités de marque et ses amis.</s>
+
+<s id="S_314">Tout se passe comme si, dans le tourbillon du sondo-marketing « <neologisme>pipole</neologisme> », la politique ne peut plus trouver ses anciens atouts.</s>
+
+<s id="S_315">La propagande « <neologisme>pipole</neologisme> » fait de la politique un spectacle de plus et transforme les politiques en acteurs de télévision qui sautent de plateau en plateau lors des élections.</s>
+
+<s id="S_316">Ainsi, les médias « <neologisme>pipoles</neologisme> » fabriquent des images d'un personnel politique affamé de notoriété et disposé à tout faire pour passer à la télé.</s>
+
+<s id="S_317">Evidement, car la propagande « <neologisme>pipole</neologisme> » cible de manière subliminale tous ceux qui, sans avouer un sentiment de solitude, ont l'impression de ne pas appartenir au monde.</s>
+
+<s id="S_318">La propagande « <neologisme>pipole</neologisme> » facilite l'identification virtuelle.</s>
+
+<s id="S_319">Le monde de l'image « <neologisme>pipole</neologisme> » est une sorte de bulle anti-angoisse.</s>
+
+<s id="S_320">Il suffit de jeter un regard sur l'influence de la « <neologisme>pipole</neologisme> propagande » aux Etats-Unis.</s>
+
+<s id="S_321">La vision « <neologisme>pipole</neologisme> » de la gouvernance est la forme la plus perverse de la ruse publicitaire.</s>
+
+<s id="S_322">Le caractère glauque de la propagande <neologisme>pipole</neologisme>, une simple variante des formes non conscientes, se révèle ainsi au sein de la démocratie libérale.</s>
+
+<s id="S_323">Alors, où passent-ils, les rejetés de la « <neologisme>pipole</neologisme> » propagande?</s>
+
+<s id="S_324">Car le modèle médiatique et le monde « <neologisme>pipole</neologisme> » imposent un effet « has been ».</s>
+
+<s id="S_325">A ce titre la « <neologisme>pipole</neologisme> propagande » marquerait un tournant.</s>
+
+<s id="S_326">Ainsi, la « <neologisme>pipole</neologisme> propagande » renoue et dépasse la propagande dans l'utilisation de biais psychologique.</s>
+
+<s id="S_327">Ce néo-langage « <neologisme>pipole</neologisme> », s'impose.</s>
+
+<s id="S_328">Le discours politique reste dans les démocraties représentatives une alternative à la rhétorique de l'image et à la mode « <neologisme>pipole</neologisme> » médiatique.</s>
+
+<s id="S_329">La propagande « <neologisme>pipole</neologisme> » s'y inscrit pleinement.</s>
+
+<s id="S_330">Un acte de violence récurrent et de plus en plus « <neologisme>pipole</neologisme>».</s>
+      </texte>
+    </examples>
+  </entry>
+
+
+Locutions :
+===========
+
+  <entry id="L00041">
+    <word pos="locution verbale">compenser carbone</word>
+    <examples>
+      <texte url="http://www.liberation.fr/terre/0101651756-du-vent-dans-les-pales" date="2010" type="article environnement" id="L00041-1">
+<s id="S_102">Il ne pète ni ne rote sans immédiatement «<neologisme>compenser carbone</neologisme>».</s>
+      </texte>
+    </examples>
+  </entry>
+
+  <entry id="L00065">
+    <word pos="locution nominale">fenêtre pop-up</word>
+    <examples>
+      <texte url="http://lamop.univ-paris1.fr/IMG/pdf/SportdecombatMac.pdf" date="2007" type="article scientifique universitaire" id="L00065-1">
+<s id="S_195">Combien de sites consacrés au Moyen Âge servent de pages d'amorçage publicitaire, pour des produits proposés dans les marges ou en <neologisme>fenêtres pop up</neologisme> n'ayant qu'un rapport très lointain, voire aucun, avec le Moyen Âge.</s>
+      </texte>
+    </examples>
+  </entry>
+
+  <entry id="L00144">
+    <word pos="locution nom">vivre ensemble</word>
+    <examples>
+      <texte url="http://blog.lefigaro.fr/rioufol/2010/08/le-vrai-scandale-de-la.html" date="2010" type="blog politique" id="L00144-1">
+<s id="S_408">Le communautarisme et sa délinquance spécifique sont une des révoltantes conséquences d'un angélisme imbécile qui persiste à penser que des peuples peuvent s'inviter chez d'autres peuples dans l'euphorie du <neologisme>vivre ensemble</neologisme>.</s>
+      </texte>
+    </examples>
+  </entry>
+
+MWE
+====
+
+
+  <entry id="L00017">
+    <word pos="verbe">avoir le seum</word>
+    <examples>
+      <texte url="http://www.editions-zones.fr/spip.php?page=lyberplayer&amp;id_article=162" date="2012" type="essai littéraire" id="L00017-1">
+<s id="S_52">Quand tu vois des flics tout retourner chez toi, insulter ton père et voir ta mère pleurer, tu peux que <neologisme>avoir le seum</neologisme>.</s>
+
+<s id="S_53"><neologisme>Avoir le seum</neologisme>, comme ils disent, les mômes.</s>
+      </texte>
+    </examples>
+  </entry>
+
+  <entry id="L00096">
+    <word pos="nom">mère fouettarde</word>
+    <examples>
+      <texte url="http://bonjourmaitresse.over-blog.net/article-6710295.html" date="" type="blog sm" id="L00096-1">
+<s id="S_261">Les <neologisme>Mères-fouettardes</neologisme> étaient sexy mais très sévères et professionnelles.</s>
+      </texte>
+      <texte url="http://anamzer.free.fr/ftemps/ftemps_jan_2007.pdf" date="2007" type="communiqué associatif" id="L00096-2">
+<s id="S_262">Nous voilà donc bien en présence d'un avatar féminin du couple saint Nicolas/Valet noir, une sorte de Mère Noël doublée d'une « <neologisme>Mère fouettarde</neologisme> ».</s>
+      </texte>
+      <texte url="http://forums.france2.fr/france2/onnapastoutdit/visages-femmes-sujet_22346_120.htm" date="2007" type="forum politique" id="L00096-3">
+<s id="S_263">Ainsi, sur le projet de loi de "lutte contre la récidive des majeurs et des mineurs", instaurant notamment des peines plancher et la suppression conditionnelle de l'excuse de minorité, présentée devant le Sénat par la <neologisme>mère fouettarde</neologisme> Rachida Dati, il faut lire ce qu'en dit la gauche - et même le centre.</s>
+      </texte>
+    </examples>
+  </entry>
+
+  <entry id="L00011">
+    <word pos="nom">assistant maternel</word>
+    <examples>
+      <texte url="http://www.legifrance.gouv.fr/affichCode.do;jsessionid=820F7B54552A2A211305712F7F817069.tpdjo11v_1?idSectionTA=LEGISCTA000006178423&amp;cidTexte=LEGITEXT000006074069&amp;dateTexte=20050211" date="2006" type="texte loi" id="L00011-1">
+<s id="S_43">Les règles relatives à la formation des assistants maternels agréés pour l'accueil de mineurs à titre permanent ou non permanent sont fixées par les dispositions des articles D. 2112-14 à D. 2112-20 du code de la santé publique ci-après reproduites : - les aspects éducatifs de l'accueil de l'enfant et le rôle de l'<neologisme>assistant maternel</neologisme> ; - le métier d'<neologisme>assistant maternel</neologisme> et le soutien au quotidien par la famille d'accueil d'un enfant qui n'est pas le sien ;</s>
+
+<s id="S_44">Art. D. 2112-20. - "Une attestation est remise par l'organisme de formation agréé, ou par le président du conseil général du département assurant la formation à tout <neologisme>assistant maternel</neologisme> ayant achevé la formation de 60 heures prévue à l'article L. 2112-3 du présent code ou la formation de 120 heures prévue à l'article L. 773-17 du code du travail.</s>
+
+<s id="S_45">Un document certifiant que la formation remplit les conditions prévues par la présente section est délivré sur la présentation de cette attestation par le directeur régional des affaires sanitaires et sociales de la région du domicile du demandeur à tout <neologisme>assistant maternel</neologisme> qui en fait la demande."</s>
+      </texte>
+    </examples>
+  </entry>
+
+  <entry id="L00144">
+    <word pos="locution nom">vivre ensemble</word>
+    <examples>
+      <texte url="http://blog.lefigaro.fr/rioufol/2010/08/le-vrai-scandale-de-la.html" date="2010" type="blog politique" id="L00144-1">
+<s id="S_408">Le communautarisme et sa délinquance spécifique sont une des révoltantes conséquences d'un angélisme imbécile qui persiste à penser que des peuples peuvent s'inviter chez d'autres peuples dans l'euphorie du <neologisme>vivre ensemble</neologisme>.</s>
+      </texte>
+    </examples>
+  </entry>
+
+  <entry id="L00041">
+    <word pos="locution verbale">compenser carbone</word>
+    <examples>
+      <texte url="http://www.liberation.fr/terre/0101651756-du-vent-dans-les-pales" date="2010" type="article environnement" id="L00041-1">
+<s id="S_102">Il ne pète ni ne rote sans immédiatement «<neologisme>compenser carbone</neologisme>».</s>
+      </texte>
+    </examples>
+  </entry>
+
+
+  <entry id="L00065">
+    <word pos="locution nominale">fenêtre pop-up</word>
+    <examples>
+      <texte url="http://lamop.univ-paris1.fr/IMG/pdf/SportdecombatMac.pdf" date="2007" type="article scientifique universitaire" id="L00065-1">
+<s id="S_195">Combien de sites consacrés au Moyen Âge servent de pages d'amorçage publicitaire, pour des produits proposés dans les marges ou en <neologisme>fenêtres pop up</neologisme> n'ayant qu'un rapport très lointain, voire aucun, avec le Moyen Âge.</s>
+      </texte>
+    </examples>
+  </entry>

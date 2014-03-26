@@ -4,7 +4,7 @@ lg <- read.table("/home/falk/Logoscope/VC/tagger/lg/lg_wo_edited.txt", sep="\t",
 
 lia <- read.table("/home/falk/Logoscope/VC/tagger/lia/lia_edited_wo.txt", sep="\t", header=TRUE, quote="")
 
-#melt <- read.table("/home/falk/Logoscope/VC/tagger/melt/melt_wo_edited.txt", sep="\t", header=TRUE, quote="")
+melt <- read.table("/home/falk/Logoscope/VC/tagger/melt/melt_wo_edited.txt", sep="\t", header=TRUE, quote="")
 #### proper nouns = common nouns
 melt <- read.table("/home/falk/Logoscope/VC/tagger/melt/melt_nc=np_edited.txt", sep="\t", header=TRUE, quote="")
 
@@ -12,7 +12,7 @@ tt <- read.table("/home/falk/Logoscope/VC/tagger/tt/tt_edited.txt", sep="\t", he
 
 semtag <- read.table("/home/falk/Logoscope/VC/tagger/sem_tag/semtag_edited_wo.txt", sep="\t", header=TRUE, quote="")
 
-tali <- read.table("/home/falk/Logoscope/VC/tagger/talismane/talismane.txt", sep="\t", header=TRUE, quote="")
+tali <- read.table("/home/falk/Logoscope/VC/tagger/talismane/talismane_edited.txt", sep="\t", header=TRUE, quote="")
 
 
 sf.score <- nrow(stanford[stanford$correct.==1,])/nrow(stanford)
@@ -24,7 +24,12 @@ semtag.score <- nrow(semtag[semtag$correct.==1,])/nrow(semtag)
 tali.score <- nrow(tali[tali$correct.==1,])/nrow(tali)
 
 
-comp <- cbind(tt[c("s_id", "g_word", "g_pos")], tt$correct., lg$correct., lia$correct., melt$correct., stanford$correct., semtag$correct.)
+comp <- cbind(tt[c("s_id", "g_word", "g_pos")], tt$correct., lg$correct., lia$correct., melt$correct., stanford$correct., semtag$correct., tali$correct.)
+
+comp <- cbind(tt[c("s_id", "g_word", "g_pos")], tt$"t_pos" , lg$"t_pos", lia$"t_pos", melt$"t_pos", stanford$"t_pos", semtag$"t_pos", tali$"t_pos")
+
+
+
 
 total <- colSums(comp[,4:9])/nrow(comp)
 
@@ -135,3 +140,26 @@ melt[comp[["melt$correct."]] == 0, c("g_word", "g_pos", "t_pos")]
 ### stanford errors
 
 stanford[comp[["stanford$correct."]] == 0, c("g_word", "g_pos", "t_pos")]
+
+##### used gold pos tags
+levels(comp$"g_pos")
+##### used lg pos tags
+levels(comp$"lg$t_pos")
+
+##### used lia pos tags
+levels(comp$"lia$t_pos")
+
+##### used melt pos tags
+levels(comp$"melt$t_pos")
+
+##### used semtag pos tags
+levels(comp$"semtag$t_pos")
+
+##### used stanford pos tags
+levels(comp$"stanford$t_pos")
+
+##### used tali pos tags
+levels(comp$"tali$t_pos")
+
+##### used tt pos tags
+levels(comp$"tt$t_pos")

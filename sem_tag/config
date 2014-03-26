@@ -24,7 +24,7 @@
 #  QUIET : {YES, Y, NO, N, TRUE, FALSE} writes no feedback.
 
 IN_FILE
-semtag_input.txt
+semtag_input_wo_neo.txt
 
 OUT_DIRECTORY
 .

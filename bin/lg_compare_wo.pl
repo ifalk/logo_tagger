@@ -92,11 +92,13 @@ Index file used to retrieve the gold tags and compare them with the tags produce
 my %opts = (
   'gold' => '',
   'csv_out' => '',
+  'tagset_out' => '',
   );
 
 my @optkeys = (
   'gold=s',
   'csv_out:s',
+  'tagset_out:s',
   );
 
 unless (GetOptions (\%opts, @optkeys)) { pod2usage(2); };
@@ -119,6 +121,7 @@ foreach my $s_ref (@gold_sent) {
 }
 
 my %lg;
+my %tagset;
 
 use List::MoreUtils qw(firstidx);
 
@@ -170,7 +173,7 @@ while (my $line = <$fh>) {
       # print STDERR $t_pos, "\n";
 
       $lg{$s_id}->{$t_word}->{$t_pos}++;
-
+      $tagset{$t_pos}++;
     }
     
     @tagged = ();
@@ -249,6 +252,17 @@ if ($opts{csv_out}) {
 }
 
 close $fh;
+
+if ($opts{tagset_out}) {
+  open(my $fh, '>:encoding(utf-8)', $opts{tagset_out}) or carp "Couldn't open $opts{tagset_out} for output: $!\n";
+
+  foreach my $pos (sort keys %tagset) {
+    print $fh $pos, "\n";
+  }
+
+  close $fh;
+}
+
 
 1;
 

@@ -7,3 +7,4 @@ Taggers to test:
                                        -lpthread -lm at the end 
                                        of command line 
 - lia_tagg (f. bechet) lia_tagg
+- talismane

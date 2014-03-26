@@ -37,11 +37,13 @@ Stub documentation for stanford_compare.pl,
 my %opts = (
   'gold' => '',
   'csv_out' => '',
+  'tagset_out' => '',
   );
 
 my @optkeys = (
   'gold=s',
   'csv_out:s',
+  'tagset_out:s',
   );
 
 unless (GetOptions (\%opts, @optkeys)) { pod2usage(2); };
@@ -81,6 +83,7 @@ foreach my $entry ($dom->findnodes('//entry')) {
 use List::MoreUtils qw(indexes);
 
 my %stanf;
+my %tagset;
 
 my $sdom = XML::LibXML->load_xml(
   location => $ARGV[0],
@@ -111,6 +114,7 @@ foreach my $s ($sdom->findnodes('//s')) {
       my $sf_word = join(' ', map { $wp[$_]->[0] } $neo_start .. $neo_end);
       my $sf_pos = join(' ', map { $wp[$_]->[1] } $neo_start .. $neo_end);
       $stanf{$s_id}->{$sf_word}->{$sf_pos}++;
+      $tagset{$sf_pos}++;
     }
   }
 }
@@ -178,6 +182,16 @@ if ($opts{csv_out}) {
   } else {
     warn "Couldn't open $opts{csv_output} for output: $!\n";
   }
+}
+
+if ($opts{tagset_out}) {
+  open(my $fh, '>:encoding(utf-8)', $opts{tagset_out}) or carp "Couldn't open $opts{tagset_out} for output: $!\n";
+
+  foreach my $pos (sort keys %tagset) {
+    print $fh $pos, "\n";
+  }
+
+  close $fh;
 }
 
 

@@ -44,8 +44,8 @@ neo_test_lia_wo.tagged: neo_test_lia_wo.seq
 # neo_test_lia_comp.txt lia.txt: ${SCRIPT_DIR}/lia_compare.pl neo_test_lia.tagged ${NEO_TAGGER_TEST_SENT}
 # 	perl $< --gold=${NEO_TAGGER_TEST_SENT} --csv_out=lia.txt neo_test_lia.tagged > neo_test_lia_comp.txt
 
-lia_neos_comp.txt lia.txt: ${SCRIPT_DIR}/lia_compare_wo.pl neo_test_lia_wo.tagged neo_index.pl
-	perl $< --gold=neo_index.pl --csv_out=lia.txt neo_test_lia_wo.tagged > lia_neos_comp.txt
+lia_neos_comp.txt lia.txt tagset.txt: ${SCRIPT_DIR}/lia_compare_wo.pl neo_test_lia_wo.tagged neo_index.pl
+	perl $< --gold=neo_index.pl --csv_out=lia.txt --tagset_out=tagset.txt neo_test_lia_wo.tagged > lia_neos_comp.txt
 
 
 ### Makefile ends here

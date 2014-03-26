@@ -1,1 +1,7 @@
 correct: 294/442 = 66.52%
+------------------------------
+
+tokenisation at '-' -> hyphenated words are tagged wrongly.
+
+---------------------------------
+w/o NEO marker: 319/443 = 72.01

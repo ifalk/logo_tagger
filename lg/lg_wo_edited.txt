@@ -357,7 +357,7 @@ S_351	RDQ	RDQ	nom	NPP	0
 S_352	RDQ	RDQ	nom	NPP	0
 S_353	réabstenu	réabstenu	verbe	VPP	1
 S_354	réabstenir	réabstenir	verbe	VINF	1
-S_355	réadvenir	réadvenir	verbe	NC	0
+S_355	réadvenir	réadvenir	verbe	VINF	1
 S_356	rebilanter	rebilanter	verbe	VINF	1
 S_357	Redéfumer	Redéfumer	verbe	VINF	1
 S_358	redéfumer	redéfumer	verbe	VINF	1
