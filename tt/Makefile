@@ -18,8 +18,8 @@ tt_input.txt: ${SCRIPT_DIR}/prepare_4_tt.pl ${NEO_TAGGER_TEST_SENT}
 neo_test_tt.tagged: tt_input.txt
 	perl /home/falk/tree-tagger/cmd/utf8-tokenize.perl -f -a /home/falk/tree-tagger/lib/french-abbreviations-utf8 $< | /home/falk/tree-tagger/bin/tree-tagger -token -lemma -sgml /home/falk/tree-tagger/lib/french-par-linux-3.2-utf8.bin > $@
 
-neo_test_tt_comp.txt tt.txt: ${SCRIPT_DIR}/tt_compare.pl neo_test_tt.tagged ${NEO_TAGGER_TEST_SENT}
-	perl $< --gold=${NEO_TAGGER_TEST_SENT} --csv_out=tt.txt neo_test_tt.tagged > neo_test_tt_comp.txt
+neo_test_tt_comp.txt tt.txt tagset.txt: ${SCRIPT_DIR}/tt_compare.pl neo_test_tt.tagged ${NEO_TAGGER_TEST_SENT}
+	perl $< --gold=${NEO_TAGGER_TEST_SENT} --csv_out=tt.txt --tagset_out=tagset.txt neo_test_tt.tagged > neo_test_tt_comp.txt
 
 
 

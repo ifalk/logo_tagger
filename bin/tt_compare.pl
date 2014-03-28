@@ -59,11 +59,13 @@ The pos tagging produced by Tt. The format is the following :
 my %opts = (
   'gold' => '',
   'csv_out' => '',
+  'tagset_out' => '',
   );
 
 my @optkeys = (
   'gold=s',
   'csv_out:s',
+  'tagset_out:s',
   );
 
 unless (GetOptions (\%opts, @optkeys)) { pod2usage(2); };
@@ -98,6 +100,7 @@ foreach my $entry ($dom->findnodes('//entry')) {
 }
 
 my %tt;
+my %tagset;
 
 open (my $fh, '<:encoding(utf-8)', $ARGV[0]) or die "Couldn't open $ARGV[0] for input: $!\n";
 
@@ -196,6 +199,7 @@ foreach my $s_id (map { $_->[0] }
       foreach my $pos (sort keys %{ $tt{$s_id}->{$word} }) {
 	push(@{ $gold_tt{$s_id}->{tagger} }, [ $word, $pos ]);
 	print "TT: $word, $pos, $tt{$s_id}->{$word}->{$pos}\n";
+	$tagset{$pos}++;
       }
     }
   } else {
@@ -228,12 +232,26 @@ if ($opts{csv_out}) {
 	  $correct = 1;
 	}
 
+	if ($g_pos eq 'nom' and $t_pos =~ m{ \A N }xms) {
+	  $correct = 1;
+	}
+
 	print $fh join("\t", $s_id, $g_word, $t_word, $g_pos, $t_pos, $correct), "\n";
       }
     }
   } else {
     warn "Couldn't open $opts{csv_output} for output: $!\n";
   }
+}
+
+if ($opts{tagset_out}) {
+  open(my $fh, '>:encoding(utf-8)', $opts{tagset_out}) or carp "Couldn't open $opts{tagset_out} for output: $!\n";
+
+  foreach my $pos (sort keys %tagset) {
+    print $fh $pos, "\n";
+  }
+
+  close $fh;
 }
 
 1;

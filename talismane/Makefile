@@ -24,7 +24,7 @@ postagged.txt: input_sentence.txt posTagger_template_with_location.ftl
 	java -Xmx1024M -jar talismane-fr-1.8.2b-allDeps.jar command=analyse startModule=tokenise endModule=postag template=posTagger_template_with_location.ftl inFile=$< outFile=$@
 
 
-neos_comp.txt talismane.txt: ${SCRIPT_DIR}/talismane_compare.pl postagged.txt ../melt/neo_index.pl
-	perl $< --gold=../melt/neo_index.pl --csv_out=talismane.txt postagged.txt > neos_comp.txt 
+neos_comp.txt talismane.txt tagset.txt: ${SCRIPT_DIR}/talismane_compare.pl postagged.txt ../melt/neo_index.pl
+	perl $< --gold=../melt/neo_index.pl --csv_out=talismane.txt --tagset_out=tagset.txt postagged.txt > neos_comp.txt 
 
 ### Makefile ends here

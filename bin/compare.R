@@ -24,14 +24,39 @@ semtag.score <- nrow(semtag[semtag$correct.==1,])/nrow(semtag)
 tali.score <- nrow(tali[tali$correct.==1,])/nrow(tali)
 
 
-comp <- cbind(tt[c("s_id", "g_word", "g_pos")], tt$correct., lg$correct., lia$correct., melt$correct., stanford$correct., semtag$correct., tali$correct.)
+comp.correct <- cbind(tt[c("s_id", "g_word", "g_pos")], tt$correct., lg$correct., lia$correct., melt$correct., stanford$correct., semtag$correct., tali$correct.)
 
-comp <- cbind(tt[c("s_id", "g_word", "g_pos")], tt$"t_pos" , lg$"t_pos", lia$"t_pos", melt$"t_pos", stanford$"t_pos", semtag$"t_pos", tali$"t_pos")
+#### sum of correct pos tags by tagger
+correct <- colSums(comp.correct[,4:10])
+
+#### percentage correct
+total <- correct/nrow(comp.correct)
+
+#### sum of correct pos tags by token
+comp.correct$sum <- rowSums(comp.correct[,4:10])
+
+#### one tagger got it right
+one <- comp.correct$sum == 1
+comp.one <- data.frame(comp.correct[one,])
+
+#### only lia
+comp.one[comp.one$lia.correct. == 1,]
+#### only lg
+comp.one[comp.one$lg.correct. == 1,]
+#### only melt
+comp.one[comp.one$melt.correct. == 1,]
+#### only semtag
+comp.one[comp.one$semtag.correct. == 1,]
+#### only stanford
+comp.one[comp.one$stanford.correct. == 1,]
+#### only talisman
+comp.one[comp.one$tali.correct. == 1,]
+#### only treetagger
+comp.one[comp.one$tt.correct. == 1,]
 
 
 
-
-total <- colSums(comp[,4:9])/nrow(comp)
+##### results per category
 
 V = comp$g_pos == 'verbe'
 nrow(comp[V,]) ## number of verbs in gold
@@ -141,25 +166,56 @@ melt[comp[["melt$correct."]] == 0, c("g_word", "g_pos", "t_pos")]
 
 stanford[comp[["stanford$correct."]] == 0, c("g_word", "g_pos", "t_pos")]
 
+##########################################
 ##### used gold pos tags
 levels(comp$"g_pos")
+##### normalised gold pos tags
+comp$"g_norm" <- comp$"g_pos"
+levels(comp$"g_norm") <- c("A", "ADV", "N ADV", "N N", "V N", "N A", "V D N", "N", "V")
+
 ##### used lg pos tags
-levels(comp$"lg$t_pos")
+levels(lg$t_pos)
+##### normalise lg pos tags
+levels(lg$"t_pos") <- c("A", "ADV", "ADV A", "D", "ET", "N", "N A", "N A PONCT", "N", "N A", "N N", "PONCT", "V", "V", "V ADV", "V D N", "V N", "V")
 
 ##### used lia pos tags
-levels(comp$"lia$t_pos")
+levels(lia$t_pos)
+##### normalise lia pos tags
+levels(lia$"t_pos") <- c("ADV","A","A", "A", "A", "MOTINC", "MOTINC N", "N", "N A A", "N", "N A", "N", "N A", "N", "N A", "N N", "V", "V", "V", "V D N", "V N", "V", "V", "V", "XPREF MOTINC", "YPFOR")
+
 
 ##### used melt pos tags
-levels(comp$"melt$t_pos")
+levels(melt$t_pos)
+##### normalise melt pos tags
+levels(melt$t_pos) <- c("A", "ADV", "ADV A", "ET", "N", "N A", "N ET", "N N ET", "N", "N A", "N N", "PONCT", "V", "V", "V ADV", "V D N", "V N", "V", "V", "V")
 
 ##### used semtag pos tags
-levels(comp$"semtag$t_pos")
+levels(semtag$t_pos)
+##### normalise semtag pos tags
+levels(semtag$t_pos) <-  c("A", "A", "A N", "ADV", "ADV", "ADV ADV", "D", "ET", "N", "N", "N A", "N A N", "N", "N", "N N", "N V", "PRO", "V", "V", "V", "V D", "V D N", "V")
 
 ##### used stanford pos tags
-levels(comp$"stanford$t_pos")
+levels(stanford$t_pos)
+##### don't need to normalise
 
 ##### used tali pos tags
-levels(comp$"tali$t_pos")
+levels(tali$t_pos)
+##### normalise tali pos tags
+levels(tali$t_pos) <- c("A", "ADV", "N", "N A", " N N N", "N N", "N V", "N", "N A", "V", "V", "V ADV", "V DET N", "V N", "V", "V")
 
 ##### used tt pos tags
-levels(comp$"tt$t_pos")
+levels(tt$t_pos)
+##### normalise tt pos tags
+levels(tt$t_pos) <-  c("A", "N", "N N", "N", "N A", "N A N", "N ADV", "V", "V", "V DET N", "V N", "V", "V", "V A", "V", "V")
+
+#### table with results for all taggers and each instance
+
+comp <- cbind(tt[c("s_id", "g_word", "g_pos")], tt$"t_pos" , lg$"t_pos", lia$"t_pos", melt$"t_pos", stanford$"t_pos", semtag$"t_pos", tali$"t_pos")
+
+#### determine pos assigned by most tagger
+apply(comp[, c("tt$t_pos", "lg$t_pos", "lia$t_pos", "melt$t_pos", "stanford$t_pos", "semtag$t_pos", "tali$t_pos")],1,function(x) names(which.max(table(x))))
+
+#### number of correct majority judgments
+maj.correct <- nrow(comp[comp$"g_norm" == comp$maj,])
+#### majority score
+maj.score <- maj.correct/nrow(comp)
