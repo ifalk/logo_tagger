@@ -20,7 +20,7 @@ S_18	animaliste	animaliste	adj	ADJ	1
 S_19	animaliste	animaliste	adj	ADJ	1
 S_20	animaliste	animaliste	adj	NC	0
 S_21	antéclaviste	antéclaviste	nom	NC	1
-S_22	Antiféminismes	Antiféminismes	nom	NPP	1
+S_22	Antiféminismes	Antiféminismes	nom	NPP	0
 S_23	antiféminisme	antiféminisme	nom	NC	1
 S_24	antiféminisme	antiféminisme	nom	NC	1
 S_25	antiféminisme	antiféminisme	nom	NC	1
@@ -127,7 +127,7 @@ S_124	décrédibilisation	décrédibilisation	nom	NC	1
 S_125	dégenrer	dégenrer	verbe	NC	0
 S_126	dégringouline	dégringouline	verbe	ADJ	0
 S_127	dégringouline	dégringouline	verbe	V	1
-S_128	DÉPARENTALISATION	DÉPARENTALISATION	nom	_NC	0
+S_128	DÉPARENTALISATION	DÉPARENTALISATION	nom	_NC	1
 S_129	déparentalisation	déparentalisation	nom	ADJ	0
 S_130	déparentalisation	déparentalisation	nom	NC	1
 S_131	déparentalisation	déparentalisation	nom	NC	1
@@ -250,7 +250,7 @@ S_244	luxèse	luxèse	nom	NC	1
 S_245	luxèse	luxèse	nom	NC	1
 S_246	Luxèse	Luxèse	nom	NPP	1
 S_247	luxèse	luxèse	nom	NC	1
-S_248	luxèse	luxèse	nom	_NC	0
+S_248	luxèse	luxèse	nom	_NC	1
 S_249	mandature	mandature	nom	NC	1
 S_250	Marie-Chantal	Marie-Chantal	nom	NC	1
 S_251	Marie-Chantal	Marie-Chantal	nom	NC	1
@@ -264,7 +264,7 @@ S_258	médiévalgie	médiévalgie	nom	ADJ	0
 S_259	médiévalgie	médiévalgie	nom	NC	1
 S_260	mémorette	mémorette	nom	_NPP	1
 S_261	Mères-fouettardes	Mères-fouettardes	MWE: nom, adj	NC	0
-S_262	Mère fouettarde	Mère fouettarde	MWE: nom, adj	NPP NC	1
+S_262	Mère fouettarde	Mère fouettarde	MWE: nom, adj	NPP NC	0
 S_263	mère fouettarde	mère fouettarde	MWE: nom, adj	NC ADJ	1
 S_264	mileuriste	mileuriste	adj	NC	0
 S_265	mileuriste	mileuriste	nom	_ADV	0
@@ -372,7 +372,7 @@ S_366	sarkophobie	sarkophobie	nom	NC	1
 S_367	sarkophobie	sarkophobie	nom	NC	1
 S_368	schtroumpfitude	schtroumpfitude	nom	ADJ	0
 S_369	seniornaute	seniornaute	nom	ADJ	0
-S_370	sexyment	sexyment	adv	_ADV	0
+S_370	sexyment	sexyment	adv	_ADV	1
 S_371	sexyment	sexyment	adv	ADJ	0
 S_372	surencadré	surencadré	verbe	_ADV	0
 S_373	surencadrer	surencadrer	verbe	NC	0

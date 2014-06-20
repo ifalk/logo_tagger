@@ -10,7 +10,10 @@ melt <- read.table("/home/falk/Logoscope/VC/tagger/melt/melt_nc=np_edited.txt", 
 
 tt <- read.table("/home/falk/Logoscope/VC/tagger/tt/tt_edited.txt", sep="\t", header=TRUE, quote="")
 
-semtag <- read.table("/home/falk/Logoscope/VC/tagger/sem_tag/semtag_edited_wo.txt", sep="\t", header=TRUE, quote="")
+####
+# semtag <- read.table("/home/falk/Logoscope/VC/tagger/sem_tag/semtag_edited_wo.txt", sep="\t", header=TRUE, quote="")
+#### model plain+lefff
+semtag <- read.table("/home/falk/Logoscope/VC/tagger/sem_tag/plain+lefff_edited.txt", sep="\t", header=TRUE, quote="")
 
 tali <- read.table("/home/falk/Logoscope/VC/tagger/talismane/talismane_edited.txt", sep="\t", header=TRUE, quote="")
 
@@ -58,41 +61,57 @@ comp.one[comp.one$tt.correct. == 1,]
 
 ##### results per category
 
-V = comp$g_pos == 'verbe'
-nrow(comp[V,]) ## number of verbs in gold
-verbs <- colSums(comp[V, 4:9])/nrow(comp[V,]) 
+V = comp.correct$g_pos == 'verbe'
+nrow(comp.correct[V,]) ## number of verbs in gold
+verbs <- colSums(comp.correct[V, 4:10])/nrow(comp.correct[V,]) 
 
-N = comp$g_pos == 'nom'
-nrow(comp[N,]) ## number of nouns in gold
-nouns <- colSums(comp[N, 4:9])/nrow(comp[N,]) 
+N = comp.correct$g_pos == 'nom'
+nrow(comp.correct[N,]) ## number of nouns in gold
+nouns <- colSums(comp.correct[N, 4:10])/nrow(comp.correct[N,]) 
 
-A = comp$g_pos == 'adj'
-nrow(comp[A,]) ## number of adjectives in gold
-adj <- colSums(comp[A, 4:9])/nrow(comp[A,]) 
+A = comp.correct$g_pos == 'adj'
+nrow(comp.correct[A,]) ## number of adjectives in gold
+adj <- colSums(comp.correct[A, 4:10])/nrow(comp.correct[A,]) 
 
-ADV = comp$g_pos == 'adv'
-nrow(comp[ADV,]) ## number of adverbs in gold
-adv <- colSums(comp[ADV, 4:9])/nrow(comp[ADV,]) 
+ADV = comp.correct$g_pos == 'adv'
+nrow(comp.correct[ADV,]) ## number of adverbs in gold
+adv <- colSums(comp.correct[ADV, 4:10])/nrow(comp.correct[ADV,]) 
+#####
 
-NV = comp$g_pos != 'verbe'
-NN = comp$g_pos != 'nom'
-NAdj = comp$g_pos != 'adj'
-NAdv = comp$g_pos != 'adv'
+NV = comp.correct$g_pos != 'verbe'
+NN = comp.correct$g_pos != 'nom'
+NAdj = comp.correct$g_pos != 'adj'
+NAdv = comp.correct$g_pos != 'adv'
 
 O = NV & NN & NAdj & NAdv
-nrow(comp[O,]) ## other pos in gold (mwes)
-other <- colSums(comp[O, 4:9])/nrow(comp[O,])
+nrow(comp.correct[O,]) ## other pos in gold (mwes)
+other <- colSums(comp.correct[O, 4:10])/nrow(comp.correct[O,])
 
-hynbr <- length(grep('-', comp[,2])) ## hyphenated words
+#####
+
+hynbr <- length(grep('-', comp.correct[,2])) ## hyphenated words
 hynbr
-hyphen = colSums(comp[grep('-', comp[,2]), 4:9])/hynbr
+hyphen = colSums(comp.correct[grep('-', comp.correct[,2]), 4:10])/hynbr
 
-wsnbr <- length(grep("\\s", comp[,3])) ## mwes
+#################
+
+cat <- rbind(total, nouns, verbs, adj, other, hyphen)
+row.names(cat) <- c("toutes cat", "noms", "verbes", "adj", "loc", "tirets")
+colnames(cat) <- c("TreeTagger", "LGtagger", "LIA_tagg", "MElt", "Stanford", "SEM", "Talismane")
+
+pdf(file="~/Logoscope/VC/SourceSup/article/taln2014/poster/results_by_cat.pdf")
+
+### crop extra white space around the graph (bottom, left, top, right)
+par(mar=c(4.2, 3.8, 0.2, 0.2))
+dotchart(t(cat), color=rainbow(7), cex=0.75, pch=19)
+dev.off()
+
+wsnbr <- length(grep("\\s", comp.correct[,3])) ## mwes
 wsnbr
-mwe = colSums(comp[grep("\\s", comp[,3]), 4:9])/wsnbr
+mwe = colSums(comp.correct[grep("\\s", comp.correct[,3]), 4:9])/wsnbr
 
-comp$sumcorr <- rowSums(comp[, 4:9])
-best.tagged <- comp[order(-comp$sumcorr, comp$g_pos),]
+comp.correct$sumcorr <- rowSums(comp.correct[, 4:9])
+best.tagged <- comp.correct[order(-comp.correct$sumcorr, comp.correct$g_pos),]
 nrow(best.tagged[best.tagged$sumcorr == 6,])
 nrow(best.tagged[best.tagged$sumcorr == 5,])
 nrow(best.tagged[best.tagged$sumcorr == 4,])
@@ -166,12 +185,6 @@ melt[comp[["melt$correct."]] == 0, c("g_word", "g_pos", "t_pos")]
 
 stanford[comp[["stanford$correct."]] == 0, c("g_word", "g_pos", "t_pos")]
 
-##########################################
-##### used gold pos tags
-levels(comp$"g_pos")
-##### normalised gold pos tags
-comp$"g_norm" <- comp$"g_pos"
-levels(comp$"g_norm") <- c("A", "ADV", "N ADV", "N N", "V N", "N A", "V D N", "N", "V")
 
 ##### used lg pos tags
 levels(lg$t_pos)
@@ -212,8 +225,16 @@ levels(tt$t_pos) <-  c("A", "N", "N N", "N", "N A", "N A N", "N ADV", "V", "V", 
 
 comp <- cbind(tt[c("s_id", "g_word", "g_pos")], tt$"t_pos" , lg$"t_pos", lia$"t_pos", melt$"t_pos", stanford$"t_pos", semtag$"t_pos", tali$"t_pos")
 
+##########################################
+##### used gold pos tags
+levels(comp$"g_pos")
+##### normalised gold pos tags
+comp$"g_norm" <- comp$"g_pos"
+levels(comp$"g_norm") <- c("A", "ADV", "N ADV", "N N", "V N", "N A", "V D N", "N", "V")
+
+
 #### determine pos assigned by most tagger
-apply(comp[, c("tt$t_pos", "lg$t_pos", "lia$t_pos", "melt$t_pos", "stanford$t_pos", "semtag$t_pos", "tali$t_pos")],1,function(x) names(which.max(table(x))))
+comp$maj <- apply(comp[, c("tt$t_pos", "lg$t_pos", "lia$t_pos", "melt$t_pos", "stanford$t_pos", "semtag$t_pos", "tali$t_pos")],1,function(x) names(which.max(table(x))))
 
 #### number of correct majority judgments
 maj.correct <- nrow(comp[comp$"g_norm" == comp$maj,])

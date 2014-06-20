@@ -31,5 +31,8 @@ semtag_input_wo_neo.txt.POS.textualised: semtag_input_wo_neo.txt config
 semtag_neos_comp.txt semtag.txt tagset.txt: ${SCRIPT_DIR}/semtag_compare_wo.pl semtag_input_wo_neo.txt.POS.textualised neo_index.pl
 	perl $< --gold=neo_index.pl --csv_out=semtag.txt --tagset_out=tagset.txt semtag_input_wo_neo.txt.POS.textualised > semtag_neos_comp.txt
 
+plain+lefff_neos_comp.txt plain+lefff.txt plain+lefff_tagset.txt: ${SCRIPT_DIR}/semtag_compare_wo.pl semtag_input_wo_neo.txt.POS.textualised neo_index.pl
+	perl $< --gold=neo_index.pl --csv_out=plain+lefff.txt --tagset_out=plain+lefff_tagset.txt semtag_input_wo_neo.txt.POS.textualised > plain+lefff_neos_comp.txt
+
 
 ### Makefile ends here
